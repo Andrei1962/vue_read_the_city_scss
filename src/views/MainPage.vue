@@ -1,0 +1,29 @@
+<template>
+  <div class="home">
+    <HeaderMain/>
+    <CardsMain/>
+  </div>
+</template>
+
+<script>
+// @ is an alias to /src
+import HeaderMain from '@/components/blocks/HeaderMain.vue'
+import CardsMain from '@/components/blocks/CardsMain.vue'
+
+export default {
+  name: 'MainPage',
+  components: {
+    HeaderMain,
+    CardsMain
+  },
+  setup () {
+  }
+}
+</script>
+<style lang="scss" scoped>
+.home {
+  max-width: 1440px;
+  background-color: #161516;
+}
+
+</style>
