@@ -2,7 +2,7 @@
   <header class="header">
     <div class="header__container">
       <h1 class="header__title" href="">наша продукция</h1>
-      <BaseActionIcon add/>
+      <BaseActionIcon remove/>
       <div class="header__bloc">
         <p class="header__description" href="">3 товара<br>на сумму 3 500 ₽</p>
         <button class="header__button"><img src="@/components/icons/BasketIcon.svg"></button>
