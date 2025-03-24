@@ -52,7 +52,6 @@ export default {
   max-width: 312px;
   border: 1px solid #D58C51;
   padding: 43px 36px;
-  margin: 0 auto;
   color: #FFFFFF;
 
   &:hover {
@@ -87,7 +86,6 @@ export default {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    margin: 0 21px;
   }
 
   &__price {
