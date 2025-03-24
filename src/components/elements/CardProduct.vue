@@ -51,9 +51,10 @@ export default {
   height: 552px;
   max-width: 312px;
   border: 1px solid #D58C51;
-  padding: 43px 36px;
+  padding: 43px 21px 36px 21px;
   margin: 0 auto;
   color: #FFFFFF;
+  box-sizing: border-box;
 
   &:hover {
     color: #D58C51;
@@ -72,6 +73,7 @@ export default {
     font-size: 17px;
     line-height: 100%;
     letter-spacing: 0%;
+    text-align: left;
   }
 
   &__subtitle {
