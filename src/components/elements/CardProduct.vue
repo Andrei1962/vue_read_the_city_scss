@@ -5,17 +5,19 @@
     <p class="card__subtitle">{{ subtitle }}</p>
     <div class="card__futtor">
       <p class="card__price">{{ price }}</p>
-      <button class="card__button">+</button>
+      <BaseActionIcon add/>
     </div>
   </div>
 </template>
 
 <script>
 // import { ref } from 'vue'
+import BaseActionIcon from '@/components/icons/BaseActionIcon'
 
 export default {
   name: 'CardProduct',
   components: {
+    BaseActionIcon
   },
   props: {
     title: {
@@ -42,44 +44,43 @@ export default {
 
 <style lang="scss" scoped>
 .card {
+  max-width: 1302px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  text-align: center;
-  width: 312px;
+  text-align: left;
+  max-width: 310px;
   height: 552px;
   border: 1px solid #D58C51;
+  padding: 43px 36px;
+  margin: 0 auto;
+  color: #FFFFFF;
+
+  &:hover {
+    color: #D58C51;
+  }
 
   &__image {
     width: 270px;
     height: 271px;
-    padding: 43px 21px 31px 21px;
+    margin: 0 auto;
   }
 
   &__title {
-    width: 226px;
+    max-width: 226px;
     font-family: Montserrat;
     font-weight: 500;
     font-size: 17px;
     line-height: 100%;
     letter-spacing: 0%;
-    text-align: left;
-    color: #FFFFFF;
-    padding-left: 21px;
-    padding-right: 27px;
   }
 
   &__subtitle {
-    weight: 261px;
+    max-width: 261px;
     font-family: Montserrat;
     font-weight: 400;
     font-size: 14px;
     line-height: 100%;
-    text-align: left;
-    color: #FFFFFF;
-    margin-bottom: 26px;
-    padding-left: 21px;
-    padding-right: 30px;
   }
 
   &__futtor {
@@ -88,7 +89,6 @@ export default {
     align-items: center;
     justify-content: space-between;
     margin: 0 21px;
-    margin-bottom: 30px;
   }
 
   &__price {
@@ -97,7 +97,6 @@ export default {
     font-size: 17px;
     line-height: 100%;
     letter-spacing: 0%;
-    color: #FFFFFF;
   }
 
   &__button {

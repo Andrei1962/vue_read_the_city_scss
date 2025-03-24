@@ -1,17 +1,18 @@
 <template>
   <div class="container">
-    <ProduktItem/>
+    <BaseActionIcon/>
+    <h1 class="bufer">BasketPage</h1>
   </div>
 </template>
 
 <script>
-// import { ref } from 'vue'
-import ProduktItem from '@/components/elements/ProduktItem'
+// @ is an alias to /src
+import BaseActionIcon from '@/components/icons/BaseActionIcon.vue'
 
 export default {
   name: 'BasketPage',
   components: {
-    ProduktItem
+    BaseActionIcon
   }
 }
 </script>

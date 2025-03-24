@@ -1,17 +1,11 @@
 import { createRouter, createWebHistory } from 'vue-router'
-import BasketPage from '../views/BasketPage.vue'
+import MainPage from '../views/MainPage.vue'
 
 const routes = [
   {
     path: '/',
     name: 'home',
-    component: BasketPage
-  },
-  {
-    path: '/basket/:id',
-    name: 'basket',
-    component: () => import('../views/BasketPage.vue'),
-    props: true
+    component: MainPage
   }
 ]
 

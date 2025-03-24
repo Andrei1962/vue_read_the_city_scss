@@ -4,14 +4,15 @@
       'button__icon-event even': true,
       'even_theme-orange': arrow || remove
     }"
+    @click.stop="$emit('clickBaseActionIcon')"
   >
     <span
-      :class="{
-        'even__line': true,
-        'even__line_add': add,
-        'even__line_arrow': arrow,
-        'even__line_remove': remove
-      }"
+    :class="{
+      'even__line': true,
+      'even__line_add': add,
+      'even__line_arrow': arrow,
+      'even__line_remove': remove
+    }"
     >
     </span>
   </button>
@@ -57,17 +58,16 @@ export default {
   transition: 0.5s;
 
   &:hover {
-    background: #D58C51;
+    background-color: #D58C51;
     border: none;
   }
 
   &_theme-orange {
     border-color: #D58C51;
-    opacity: 0.7;
 
     &:hover {
-    background-color: transparent;
-    border: 1px solid #D58C51;
+      border: 2px solid #D58C51;
+      background-color: #151615;
     }
   }
 
@@ -101,12 +101,6 @@ export default {
     height: 1px;
     background-color: #D58C51;
 
-    &:hover {
-      .even {
-        border-color: #FFFFFF;
-      }
-    }
-
     &::before, &::after {
       width: 6px;
       height: 1px;
@@ -129,13 +123,6 @@ export default {
   &__line_remove {
     width: 0;
     height: 1px;
-
-    &:hover {
-      background: #ffffff;
-      .even {
-        border-color: #D58C51;
-      }
-    }
 
     &::before, &::after {
       width: 13px;

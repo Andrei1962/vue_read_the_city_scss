@@ -2,23 +2,21 @@
   <header class="header">
     <div class="header__container">
       <h1 class="header__title" href="">наша продукция</h1>
-      <BaseActionIcon remove/>
-      <div class="header__bloc">
+      <div class="header__block">
         <p class="header__description" href="">3 товара<br>на сумму 3 500 ₽</p>
-        <button class="header__button"><img src="@/components/icons/BasketIcon.svg"></button>
+        <button class="header__button"><BasketMcon/></button>
       </div>
     </div>
   </header>
 </template>
 
 <script>
-// @ is an alias to /src
-import BaseActionIcon from '@/components/icons/BaseActionIcon'
+import BasketMcon from '@/components/icons/BasketMcon.vue'
 
 export default {
   name: 'HeaderMain',
   components: {
-    BaseActionIcon
+    BasketMcon
   },
   props: {
     name: {
@@ -33,20 +31,20 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  width: 1302px;
-  margin-bottom: 74px;
+  max-width: 1440px;
+  margin: o auto;
 
   &__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: 0 auto;
-    padding-top: 45px;
+    margin-left: 70px;
+    padding-top: 24px;
+    padding-bottom: 50px;
   }
 
   &__title {
     display: inline-block;
-    width: 535px;
     font-family: Montserrat;
     font-weight: 700;
     font-size: 31px;
@@ -55,14 +53,12 @@ export default {
     text-transform: uppercase;
     color: #ffffff;
     text-decoration: none;
-    margin-left: 70px;
   }
 
-  &__bloc {
+  &__block {
     display: flex;
     align-items: center;
     justify-content: flex-end;
-    margin-right: -70px;
   }
 
   &__description {
@@ -85,6 +81,10 @@ export default {
     border-radius: 50%;
     background-color: #151615;
     border: none;
+
+    &:hover {
+      background: #151615;
+    }
   }
 }
 

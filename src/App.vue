@@ -1,9 +1,5 @@
 <template>
-<div class="app">
-  <main>
-    <router-view></router-view>
-  </main>
-</div>
+  <router-view/>
 </template>
 
 <style lang="scss" scoped>
