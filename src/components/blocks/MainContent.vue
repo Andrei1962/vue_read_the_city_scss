@@ -1,7 +1,7 @@
 <template>
-  <div class="main">
+  <div class="main container">
     <ProduktItem
-      v-for="(item, i) in produktList"
+      v-for="(item, i) in Products"
       :key="i"
       :title="item.title"
       :decoration="ite.decoration"
@@ -26,14 +26,33 @@ export default {
   setup () {
     const store = useStore()
 
-    const produktList = computed(() => {
+    const Products = computed(() => {
       return store.getters.getProducts
     })
 
     return {
-
+      Products
     }
   }
 }
 
 </script>
+
+<style lang="scss" scoped>
+.container {
+  max-width: 1310px;
+  margin: 0 auto;
+}
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px 20 px;
+  overflow: auto;
+  height: 100%;
+
+  :deep(.card) {
+    width: 312px;
+    height: 552px;
+  }
+}
+</style>

@@ -1,17 +1,20 @@
 <template>
   <div class="container">
-    <ProduktItem/>
+    <HeaderMain/>
+    <MainContent/>
   </div>
 </template>
 
 <script>
 // import { ref } from 'vue'
-import ProduktItem from '@/components/elements/ProduktItem'
+import HeaderMain from '@/components/blocks/HeaderMain'
+import MainContent from '@/components/blocks/MainContent'
 
 export default {
   name: 'BasketPage',
   components: {
-    ProduktItem
+    HeaderMain,
+    MainContent
   }
 }
 </script>
@@ -21,10 +24,6 @@ export default {
   widht: 1440px;
   height: 1379px;
   background-color: #161516;
-
-  .bufer {
-  color: #ffffff;
-  }
 }
 
 </style>

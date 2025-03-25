@@ -85,6 +85,10 @@ export default {
     align-items: center;
     font-size: 17px;
     color: #ffffff;
+
+    :deep(.button__icon-event) {
+      margin-left: auto;
+    }
   }
 }
 

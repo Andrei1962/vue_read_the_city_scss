@@ -2,22 +2,18 @@
   <header class="header">
     <div class="header__container">
       <h1 class="header__title" href="">наша продукция</h1>
-      <div class="header__block">
+      <div class="header__bloc">
         <p class="header__description" href="">3 товара<br>на сумму 3 500 ₽</p>
-        <button class="header__button"><BasketMcon/></button>
+        <button class="header__button"><img src="@/components/icons/BasketIcon.svg"></button>
       </div>
     </div>
   </header>
 </template>
 
 <script>
-import BasketMcon from '@/components/icons/BasketMcon.vue'
 
 export default {
   name: 'HeaderMain',
-  components: {
-    BasketMcon
-  },
   props: {
     name: {
       type: String,
@@ -31,21 +27,20 @@ export default {
 
 <style lang="scss" scoped>
 .header {
-  margin: o auto;
+  width: 1302px;
+  margin-bottom: 74px;
 
   &__container {
-    max-width: 1310px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-left: 70px;
-    padding-top: 24px;
-    padding-bottom: 50px;
     margin: 0 auto;
+    padding-top: 45px;
   }
 
   &__title {
     display: inline-block;
+    width: 535px;
     font-family: Montserrat;
     font-weight: 700;
     font-size: 31px;
@@ -54,12 +49,14 @@ export default {
     text-transform: uppercase;
     color: #ffffff;
     text-decoration: none;
+    margin-left: 70px;
   }
 
-  &__block {
+  &__bloc {
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    margin-right: -70px;
   }
 
   &__description {
@@ -82,10 +79,6 @@ export default {
     border-radius: 50%;
     background-color: #151615;
     border: none;
-
-    &:hover {
-      background: #151615;
-    }
   }
 }
 

@@ -1,20 +1,20 @@
 <template>
   <div class="home">
     <HeaderMain/>
-    <CardsMain/>
+    <MainContent/>
   </div>
 </template>
 
 <script>
 // @ is an alias to /src
 import HeaderMain from '@/components/blocks/HeaderMain.vue'
-import CardsMain from '@/components/blocks/CardsMain.vue'
+import MainContent from '@/components/blocks/MainContent.vue'
 
 export default {
-  name: 'MainPage',
+  name: 'HomeView',
   components: {
     HeaderMain,
-    CardsMain
+    MainContent
   },
   setup () {
   }
@@ -22,6 +22,7 @@ export default {
 </script>
 <style lang="scss" scoped>
 .home {
+  max-width: 1440px;
   background-color: #161516;
 }
 

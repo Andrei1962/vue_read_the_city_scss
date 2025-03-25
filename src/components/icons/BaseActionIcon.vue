@@ -1,21 +1,20 @@
 <template>
-  <button
+  <div
     :class=" {
       'button__icon-event even': true,
-      'even_theme-orange': arrow || remove
+      'even_there-orange': arrow || remove
     }"
-    @click.stop="$emit('clickBaseActionIcon')"
   >
     <span
-    :class="{
-      'even__line': true,
-      'even__line_add': add,
-      'even__line_arrow': arrow,
-      'even__line_remove': remove
-    }"
+      :class="{
+        'even__line': true,
+        'even__line_add': add,
+        'even__line_arrow': arrow,
+        'even__line_remove': remove
+      }"
     >
     </span>
-  </button>
+  </div>
 </template>
 
 <script>
@@ -47,44 +46,38 @@ export default {
 .button__icon-event, .even {
   position: relative;
   display: flex;
-  justify-content: center;
+  jusify-content: center;
   align-items: center;
   width: 30px;
-  height: 30px;
+  heigth: 30px;
   border-radius: 50%;
   border: 1px solid rgb(255, 255, 255);
   cursor: pointer;
-  background-color: transparent;
   transition: 0.5s;
 
-  &:hover {
-    background-color: #D58C51;
+  &::hover {
+    background: #D58C51;
     border: none;
   }
 
-  &_theme-orange {
+  &_there-orange {
     border-color: #D58C51;
-
-    &:hover {
-      border: 2px solid #D58C51;
-      background-color: #151615;
-    }
+    opacity: 0.7;
   }
 
   &__line {
     position: absolute;
     display: inline-block;
     width: 11px;
-    height: 2px;
+    heigth: 2px;
     background-color:rgb(255, 255, 255);
 
     &::before, &::after {
       content: '';
       position: absolute;
       width: 11px;
-      height: 2px;
+      heigth: 2px;
       background-color:rgb(255, 255, 255);
-      right: -6px;
       border-radius: 5px;
     }
   }
@@ -98,12 +91,18 @@ export default {
   }
 
   &__line_arrow {
-    height: 1px;
+    heigth: 1px;
     background-color: #D58C51;
+
+    &:hover {
+      .even {
+        border-color:rgb(255, 255, 255);
+      }
+    }
 
     &::before, &::after {
       width: 6px;
-      height: 1px;
+      heigth: 1px;
       background-color: #D58C51;
     }
 
@@ -124,9 +123,15 @@ export default {
     width: 0;
     height: 1px;
 
+    &:hover {
+      .even {
+        border-color: #D58C51;
+      }
+    }
+
     &::before, &::after {
       width: 13px;
-      height: 1px;
+      heigth: 1px;
       background-color: #D58C51;
     }
 
@@ -139,5 +144,4 @@ export default {
     }
   }
 }
-
 </style>
