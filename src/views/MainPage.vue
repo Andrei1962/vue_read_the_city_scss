@@ -11,7 +11,7 @@ import HeaderMain from '@/components/blocks/HeaderMain.vue'
 import MainContent from '@/components/blocks/MainContent.vue'
 
 export default {
-  name: 'HomeView',
+  name: 'MainPage',
   components: {
     HeaderMain,
     MainContent
@@ -22,7 +22,6 @@ export default {
 </script>
 <style lang="scss" scoped>
 .home {
-  max-width: 1440px;
   background-color: #161516;
 }
 

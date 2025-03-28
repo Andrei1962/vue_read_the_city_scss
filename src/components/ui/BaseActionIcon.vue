@@ -10,7 +10,8 @@
         'even__line': true,
         'even__line_add': add,
         'even__line_arrow': arrow,
-        'even__line_remove': remove
+        'even__line_remove': remove,
+        'even__line_fotter': fotter
       }"
     >
     </span>
@@ -143,6 +144,21 @@ export default {
     &::after {
       transform: rotate(45deg);
     }
+  }
+
+  &__line_fotter {
+    width: 200px;
+    height: 42px;
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    color: #131313;
+    background-color: #D58C51;
+    padding-top: 20px;
+    padding-left: 330px;
+    border-radius: 0;
   }
 }
 

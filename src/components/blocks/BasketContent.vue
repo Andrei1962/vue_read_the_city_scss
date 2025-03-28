@@ -1,6 +1,7 @@
 <template>
-  <div class="main container">
+  <div class="basket-list">
     <ProduktItem
+      basket
       v-for="(item, i) in Productslist"
       :key="i"
       :title="item.title"
@@ -17,7 +18,7 @@ import { useStore } from 'vuex'
 import ProduktItem from '@/components/elements/ProduktItem'
 
 export default {
-  name: 'MainContent',
+  name: 'BasketContent',
   components: {
     ProduktItem
   },
@@ -25,37 +26,37 @@ export default {
   },
   setup () {
     const store = useStore()
-
     const Productslist = computed(() => {
       return store.getters.getProducts
     })
-
     return {
       Productslist
     }
   }
 }
-
 </script>
 
 <style lang="scss" scoped>
-.container {
-  max-width: 1500px;
+.basket-list {
+  display: flex;
+  flex-direction: column;
+  gap: 31px;
+  height: calc(100vh - 218px);
+  overflow: auto;
+  margin-bottom: 40px;
+  background-color: #151615;
+}
+
+.footor__line {
+  width: 100%;
+  height: 1px;
+  border: 1px colid #D58C51;
   margin: 0 auto;
 }
 
-.main {
-  height: 100%;
-  display: flex;
-  aling-items: center;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 35px 20px;
-  padding-bottom: 67px;
-
-  :deep(.card) {
-    width: 312px;
-    height: 552px;
-  }
+.footor__basket {
+  width: 1440px;
+  background-color: #151615;
+  height: 89px;
 }
 </style>

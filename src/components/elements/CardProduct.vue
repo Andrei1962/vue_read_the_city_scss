@@ -5,19 +5,19 @@
     <p class="card__subtitle">{{ subtitle }}</p>
     <div class="card__futtor">
       <p class="card__price">{{ price }}</p>
-      <BaseActionIcon add/>
+      <BaseActionBtn add/>
     </div>
   </div>
 </template>
 
 <script>
 // import { ref } from 'vue'
-import BaseActionIcon from '@/components/icons/BaseActionIcon'
+import BaseActionBtn from '@/components/ui/BaseActionBtn'
 
 export default {
   name: 'CardProduct',
   components: {
-    BaseActionIcon
+    BaseActionBtn
   },
   props: {
     title: {
@@ -33,8 +33,8 @@ export default {
       default: ''
     },
     price: {
-      type: String,
-      default: ''
+      type: Number,
+      default: 0
     }
   },
   setup () {

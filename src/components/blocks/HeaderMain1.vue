@@ -2,21 +2,22 @@
   <header
     :class="{
       'header container': true,
-      'header_basket': basketHeader
+      'header__basket': basketHeader
     }"
     >
     <router-link to="/" v-if="basketHeader">
       <BaseActionBtn
-        arrow
-      />
+      arrow
+    />
     </router-link>
+    
     <h1 class="header__title">
-      {{ basketHeader ? 'Корзина с выбранными товарами' : 'наша продукция'}}
+      {{ basketHeader ? 'Корзина с выбраными товарами' : 'НАША ПРОДУКЦИЯ}}
     </h1>
-    <div class="header__basket" v-if="!basketHeader">
+    <div class="header__basket" v-if="basketHeader">
       <div class="header__basket-count">
-        <span>{{ constBasket }} товара<br></span>
-        <span>на сумму {{ sumInBasket }} ₽</span>
+        <span>3 товара<br></span>
+        <span>на сумму 3 500 ₽</span>
       </div>
       <router-link to="/basket">
         <BasketMcon/>
@@ -26,8 +27,6 @@
 </template>
 
 <script>
-import { computed } from 'vue'
-import { useStore } from 'vuex'
 import BasketMcon from '@/components/icons/BasketMcon.vue'
 import BaseActionBtn from '@/components/ui/BaseActionBtn'
 
@@ -44,17 +43,6 @@ export default {
     }
   },
   setup () {
-    const store = useStore()
-    const constBasket = computed(() => {
-      return store.getters.getCountProguctsInBasket
-    })
-    const sumInBasket = computed(() => {
-      return store.getters.getAllPriceProductsInBasket
-    })
-    return {
-      constBasket,
-      sumInBasket
-    }
   }
 }
 </script>
@@ -65,26 +53,31 @@ export default {
   margin: 0 auto;
 }
 
-.header, .header__basket {
+.header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
+  padding-top: 24px;
+  padding-bottom: 50px;
 
-.header {
-  padding-top: 54px;
-  padding-bottom: 81px;
+  
 
-  &_basket {
-    display: flex;
-    align-items: center;
-    justify-content: start;
-    gap: 63px;
-    margin-bottom: 38px;
+  &__title {
+    display: inline-block;
+    font-family: Montserrat;
+    font-weight: 700;
+    font-size: 31px;
+    line-height: 100%;
+    letter-spacing: 0%;
+    text-transform: uppercase;
+    color: #ffffff;
+    text-decoration: none;
   }
 
   &__basket {
-    gap: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
 
     &-count {
       display: flex;
@@ -99,20 +92,8 @@ export default {
       text-align: right;
       text-decoration: none;
       color: #ffffff;
-      padding: 15px 0 15px;
+      padding: 15px 5px 15px;
     }
-  }
-
-  &__title {
-    display: inline-block;
-    font-family: Montserrat;
-    font-weight: 700;
-    font-size: 31px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    text-transform: uppercase;
-    color: #ffffff;
-    text-decoration: none;
   }
 
   &__button {
@@ -121,7 +102,6 @@ export default {
     border-radius: 50%;
     background-color: #151615;
     border: none;
-    padding-left: 20px;
 
     &:hover {
       background: #151615;

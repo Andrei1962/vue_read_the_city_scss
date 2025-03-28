@@ -1,8 +1,8 @@
 <template>
-  <div
+  <button
     :class=" {
       'button__icon-event even': true,
-      'even_there-orange': arrow || remove
+      'even_theme-orange': arrow || remove
     }"
   >
     <span
@@ -14,13 +14,13 @@
       }"
     >
     </span>
-  </div>
+  </button>
 </template>
 
 <script>
 
 export default {
-  name: 'BaseActionIcon',
+  name: 'BaseActionBtn',
   components: {
   },
   props: {
@@ -46,38 +46,45 @@ export default {
 .button__icon-event, .even {
   position: relative;
   display: flex;
-  jusify-content: center;
+  justify-content: center;
   align-items: center;
   width: 30px;
-  heigth: 30px;
+  height: 30px;
   border-radius: 50%;
   border: 1px solid rgb(255, 255, 255);
+  background-color: transparent;
   cursor: pointer;
   transition: 0.5s;
 
-  &::hover {
-    background: #D58C51;
+  &:hover {
+    background-color: #D58C51;
     border: none;
   }
 
-  &_there-orange {
+  &_theme-orange {
     border-color: #D58C51;
     opacity: 0.7;
+
+    &:hover {
+      background-color: transparent;
+      border: 1px solid #D58C51;
+    }
   }
 
   &__line {
     position: absolute;
     display: inline-block;
     width: 11px;
-    heigth: 2px;
+    height: 2px;
     background-color:rgb(255, 255, 255);
 
     &::before, &::after {
       content: '';
       position: absolute;
       width: 11px;
-      heigth: 2px;
+      height: 2px;
       background-color:rgb(255, 255, 255);
+      right: -6px;
       border-radius: 5px;
     }
   }
@@ -102,7 +109,7 @@ export default {
 
     &::before, &::after {
       width: 6px;
-      heigth: 1px;
+      height: 1px;
       background-color: #D58C51;
     }
 
@@ -131,7 +138,7 @@ export default {
 
     &::before, &::after {
       width: 13px;
-      heigth: 1px;
+      height: 1px;
       background-color: #D58C51;
     }
 
