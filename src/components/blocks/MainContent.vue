@@ -1,12 +1,13 @@
 <template>
-  <div class="main">
+  <div class="main container">
     <ProduktItem
-      v-for="(item, i) in produktList"
+      v-for="(item, i) in productslist"
       :key="i"
       :title="item.title"
-      :decoration="ite.decoration"
+      :description="item.description"
       :urlImage="item.img"
       :price="item.price"
+      @clickProductBtn="addToBasket(item.id)"
     />
   </div>
 </template>
@@ -26,14 +27,41 @@ export default {
   setup () {
     const store = useStore()
 
-    const produktList = computed(() => {
+    const productslist = computed(() => {
       return store.getters.getProducts
     })
 
-    return {
+    const addToBasket = (id) => {
+      store.commit('setAddProductInBasket', id)
+    }
 
+    return {
+      productslist,
+      addToBasket
     }
   }
 }
 
 </script>
+
+<style lang="scss" scoped>
+.container {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.main {
+  height: 100%;
+  display: flex;
+  aling-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 35px 20px;
+  padding-bottom: 67px;
+
+  :deep(.card) {
+    width: 312px;
+    height: 552px;
+  }
+}
+</style>

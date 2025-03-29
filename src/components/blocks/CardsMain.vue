@@ -1,87 +1,59 @@
 <template>
-  <div class="list">
-    <CardProduct
-      v-for="(item, i) in dataBooks"
+  <div class="main container">
+    <ProduktItem
+      v-for="(item, i) in Products"
       :key="i"
-      :title="item.name"
-      :subtitle="item.description"
-      :srcImg="item.image"
-      :price="item.cost"
+      :title="item.title"
+      :decoration="ite.decoration"
+      :urlImage="item.img"
+      :price="item.price"
     />
   </div>
 </template>
 
 <script>
-// import { ref } from 'vue'
-import CardProduct from '@/components/elements/CardProduct.vue'
+import { computed } from 'vue'
+import { useStore } from 'vuex'
+import ProduktItem from '@/components/elements/ProduktItem'
 
 export default {
   name: 'CardsMain',
   components: {
-    CardProduct
+    ProduktItem
   },
   props: {
   },
   setup () {
-    const dataBooks = ([
-      {
-        name: 'Устрицы по рокфеллеровски',
-        description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры ',
-        cost: '2 700 ₽',
-        image: require('@/assets/images/1.png')
-      },
-      {
-        name: 'Свиные ребрышки на гриле с зеленью',
-        description: 'Не следует, однако забывать, что реализация намеченных плановых',
-        cost: '1 600 ₽',
-        image: require('@/assets/images/2.png')
-      },
-      {
-        name: 'Креветки по-королевски в лимонном соке',
-        description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры обеспечивает широкому кругу',
-        cost: '1 820 ₽',
-        image: require('@/assets/images/3.png')
-      },
-      {
-        name: 'Устрицы по рокфеллеровски',
-        description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры',
-        cost: '2 700 ₽',
-        image: require('@/assets/images/4.png')
-      },
-      {
-        name: 'Устрицы по рокфеллеровски',
-        description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры ',
-        cost: '2 700 ₽',
-        image: require('@/assets/images/1.png')
-      },
-      {
-        name: 'Свиные ребрышки на гриле с зеленью',
-        description: 'Не следует, однако забывать, что реализация намеченных плановых',
-        cost: '1 600 ₽',
-        image: require('@/assets/images/2.png')
-      },
-      {
-        name: 'Креветки по-королевски в лимонном соке',
-        description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры обеспечивает широкому кругу',
-        cost: '1 820 ₽',
-        image: require('@/assets/images/3.png')
-      },
-      {
-        name: 'Устрицы по рокфеллеровски',
-        description: 'Значимость этих проблем настолько очевидна, что укрепление и развитие структуры',
-        cost: '2 700 ₽',
-        image: require('@/assets/images/4.png')
-      }
-    ])
+    const store = useStore()
+
+    const Products = computed(() => {
+      return store.getters.getProducts
+    })
 
     return {
-      dataBooks
+      Products
     }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+.container {
+  max-width: 1310px;
+  margin: 0 auto;
+}
+.main {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 35px 20 px;
+  overflow: auto;
+  height: 100%;
+
+  :deep(.card) {
+    width: 312px;
+    height: 552px;
+  }
+}
 
 .list {
   max-width: 1440px;
@@ -90,6 +62,7 @@ export default {
   gap: 35px 20px;
   align-items: center;
   justify-content: center;
+  padding-bottom: 70px;
   margin: 0 auto;
 }
 
