@@ -47,6 +47,9 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 31px;
+  overflow: auto;
+  margin-bottom: 40px;
+  height: calc(100vh - 160px);
 }
 
 </style>
