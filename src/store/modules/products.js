@@ -76,14 +76,12 @@ export default {
         state.BasketProducts.push(product)
       }
       state.CountProductsInBasket = state.BasketProducts.length
-      state.AllPriceProductsInBasket = state.BasketProducts
-        .reduce((sum, current) => { return sum + current.price }, 0)
+      state.AllPriceProductsInBasket = state.BasketProducts.reduce((sum, current) => { return sum + current.price }, 0)
     },
-    setDeleteProductInBasket: (state, val) => {
+    setDeleteProductsInBasket: (state, val) => {
       state.BasketProducts = state.BasketProducts.filter((item) => item.id !== val)
       state.CountProductsInBasket = state.BasketProducts.length
-      state.AllPriceProductsInBasket = state.BasketProducts
-        .reduce((sum, current) => { return sum + current.price }, 0)
+      state.AllPriceProductsInBasket = state.BasketProducts.reduce((sum, item) => { return sum + item.price }, 0)
     }
   }
 }

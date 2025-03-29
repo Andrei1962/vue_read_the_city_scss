@@ -32,7 +32,7 @@ export default {
     })
 
     const addToBasket = (id) => {
-      store.commit('setAddProductInBasket', id)
+      store.commit('setAddProductsInBasket', id)
     }
 
     return {

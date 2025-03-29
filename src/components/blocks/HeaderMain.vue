@@ -15,7 +15,7 @@
     </h1>
     <div class="header__basket" v-if="!basketHeader">
       <div class="header__basket-count">
-        <span>{{ constBasket }} товара<br></span>
+        <span>{{ countBasket }} товара<br></span>
         <span>на сумму {{ sumInBasket }} ₽</span>
       </div>
       <router-link to="/basket">
@@ -47,7 +47,7 @@ export default {
   setup () {
     const store = useStore()
     const router = useRouter()
-    const constBasket = computed(() => {
+    const countBasket = computed(() => {
       return store.getters.getCountProductsInBasket
     })
     const sumInBasket = computed(() => {
@@ -58,7 +58,7 @@ export default {
       router.go(-1)
     }
     return {
-      constBasket,
+      countBasket,
       sumInBasket,
       goBack
     }

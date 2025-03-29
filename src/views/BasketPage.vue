@@ -26,8 +26,11 @@ export default {
 
 <style lang="scss" scoped>
 .basket {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   max-width: 1540px;
-  height: 100%;
+  height: 100vh;
   background-color: #161516;
   overflow-y: hidden;
 

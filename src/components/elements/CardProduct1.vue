@@ -112,3 +112,7 @@ export default {
 }
 
 </style>
+padding-bottom: 102px;
+  height: calc(100vh - 218px);
+  margin-bottom: 40px;
+  overflow: auto;

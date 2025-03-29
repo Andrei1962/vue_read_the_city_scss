@@ -2,13 +2,13 @@
   <div class="basket-list">
     <ProduktItem
       basket
-      v-for="(item, i) in productsIntBasket"
+      v-for="(item, i) in productsInBasket"
       :key="i"
       :title="item.title"
       :description="item.description"
       :urlImage="item.img"
       :price="item.price"
-      @clickProductBtn="deleteProductInBasket(item.id)"
+      @clickProductBtn="deleteProductsInBasket(item.id)"
     />
   </div>
 </template>
@@ -27,16 +27,16 @@ export default {
   },
   setup () {
     const store = useStore()
-    const productsIntBasket = computed(() => {
+    const productsInBasket = computed(() => {
       return store.getters.getBasketProducts
     })
 
-    const deleteProductInBasket = (id) => {
-      store.commit('setDeleteProductInBasket', id)
+    const deleteProductsInBasket = (id) => {
+      store.commit('setDeleteProductsInBasket', id)
     }
     return {
-      productsIntBasket,
-      deleteProductInBasket
+      productsInBasket,
+      deleteProductsInBasket
     }
   }
 }
@@ -47,10 +47,6 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 31px;
-  padding-bottom: 102px;
-  height: calc(100vh - 218px);
-  margin-bottom: 40px;
-  overflow: auto;
 }
 
 </style>
