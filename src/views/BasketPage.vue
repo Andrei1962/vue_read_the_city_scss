@@ -40,7 +40,7 @@ export default {
   }
 
   &__line {
-    width: 1540px;
+    width: 100%;
     background-color:rgb(240, 198, 11);
     height: 1px;
     margin-left: -341px;
