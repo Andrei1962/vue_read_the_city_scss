@@ -42,7 +42,6 @@ export default {
   border-top: 1px solid #D58C51;
   padding: 20px 0 27px 0;
   width: 100%;
-  margin-top: 1px;
 
   &__wrapper {
     position: relative;

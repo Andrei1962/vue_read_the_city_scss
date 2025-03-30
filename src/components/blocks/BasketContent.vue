@@ -49,7 +49,7 @@ export default {
   gap: 31px;
   overflow: auto;
   margin-bottom: 40px;
-  height: calc(100vh - 218px);
+  height: calc(100vh - 300px);
 }
 
 </style>
