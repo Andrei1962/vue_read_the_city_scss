@@ -152,7 +152,7 @@ export default {
     margin-left: auto;
     gap: 15px;
     color: #D58C51;
-    margin-right: 20px;
+    margin-right: 40px;
   }
 }
 </style>

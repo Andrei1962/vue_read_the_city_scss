@@ -42,6 +42,10 @@ export default {
     basketHeader: {
       type: Boolean,
       default: false
+    },
+    price: {
+      type: Number,
+      default: 0
     }
   },
   setup () {
@@ -79,8 +83,8 @@ export default {
 }
 
 .header {
-  padding-top: 54px;
-  padding-bottom: 81px;
+  padding-top: 53px;
+  padding-bottom: 38px;
 
   &_basket {
     display: flex;

@@ -42,8 +42,10 @@ export default {
   border-top: 1px solid #D58C51;
   padding: 20px 0 27px 0;
   width: 100%;
+  margin-top: 1px;
 
   &__wrapper {
+    position: relative;
     display: flex;
     aling-items: center;
     justify-content: spase-between;
@@ -52,6 +54,7 @@ export default {
   }
 
   &__order {
+    position: relative;
     display: inline-block;
     color: #ffffff;
     font-family: Montserrat;
@@ -60,8 +63,10 @@ export default {
     line-height: 100%;
     letter-spacing: 0%;
     text-transform: uppercase;
+    margin-left: 100px;
 
     &-sum {
+      position: relative;
       display: inline-block;
       color: #D58C51;
       font-family: Montserrat;
@@ -69,15 +74,17 @@ export default {
       font-size: 18px;
       line-height: 100%;
       letter-spacing: 0%;
+      margin-left: 10px;
     }
 
     &-btn {
+      position: relative;
       font-family: Montserrat;
       font-weight: 400;
       font-size: 14px;
       line-height: 100%;
       letter-spacing: 0%;
-      margin-right: 250px;
+      margin-right: 400px;
     }
   }
 }

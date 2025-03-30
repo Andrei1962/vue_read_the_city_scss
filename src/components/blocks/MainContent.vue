@@ -46,7 +46,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  max-width: 1500px;
+  max-width: 1310px;
   margin: 0 auto;
 }
 
@@ -57,7 +57,6 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   gap: 35px 20px;
-  padding-bottom: 67px;
 
   :deep(.card) {
     width: 312px;
