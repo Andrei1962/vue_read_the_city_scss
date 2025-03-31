@@ -87,7 +87,7 @@ export default {
     },
     setUpdateCounts (state) {
       state.CountProductsInBasket = state.BasketProducts.length
-      state.AllPriceProductsInBasket = state.BasketProducts.reduce((sum, current) => { return sum + current }, 0)
+      state.AllPriceProductsInBasket = state.BasketProducts.reduce((sum, current) => { return sum + current.price }, 0)
     }
   }
 }
