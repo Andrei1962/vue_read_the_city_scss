@@ -6,7 +6,7 @@
         <span class="footer__order-sum">{{ sumInBasket }} ₽ </span>
       </p>
     </div>
-    <BaseButton class="footer__order-btn" name="Оформить заказ" orange/>
+    <BaseButton  @clickBaseButton="arrangeBasket(item)" class="footer__order-btn" name="Оформить заказ" orange/>
   </footer>
 </template>
 
@@ -27,8 +27,19 @@ export default {
     const sumInBasket = computed(() => {
       return store.getters.getAllPriceProductsInBasket
     })
+    const arrangeBasket = (item) => {
+      store.commit('setCurrentProduct',
+        {
+          id: item.id,
+          img: item.img,
+          title: item.title,
+          price: item.price
+        }
+      )
+    }
     return {
-      sumInBasket
+      sumInBasket,
+      arrangeBasket
     }
   }
 }
@@ -42,6 +53,7 @@ export default {
   border-top: 1px solid #D58C51;
   padding: 20px 0 27px 0;
   width: 100%;
+  max-height: 89px;
 
   &__wrapper {
     position: relative;
@@ -63,6 +75,7 @@ export default {
     letter-spacing: 0%;
     text-transform: uppercase;
     margin-left: 100px;
+    margin-top: 8px;
 
     &-sum {
       position: relative;

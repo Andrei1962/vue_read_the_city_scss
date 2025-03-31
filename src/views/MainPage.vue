@@ -23,7 +23,7 @@ export default {
 <style lang="scss" scoped>
 .home {
   background-color: #161516;
-  overflow-y: hidden;
+  overflow: auto;
   height: 100%;
   padding-bottom: 67px;
 }

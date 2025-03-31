@@ -1,4 +1,4 @@
-<template>
+d<template>
   <div class="basket-list">
     <ProduktItem
       basket
@@ -10,6 +10,7 @@
       :price="item.price"
       @clickProductBtn="deleteProductsInBasket(item.idx)"
     />
+    <div id="arrange" class="basket__arrange">Ваш заказ оформлен, менеджер свяжется с вами</div>
   </div>
 </template>
 
@@ -52,4 +53,16 @@ export default {
   height: calc(100vh - 300px);
 }
 
+.basket__arrange {
+  display: none;
+  position: absolut;
+  weight: 300px;
+  height: 50px;
+  color: #ffffff;
+  background-color: #D58C51;
+  z-index: 2;
+  top: 100px;
+  margin: 0 auto;
+  font-size: 20px;
+}
 </style>

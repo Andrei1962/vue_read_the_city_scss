@@ -32,6 +32,7 @@ export default {
   width: 100%;
   height: 100vh;
   background-color: #161516;
+  overflow: auto;
 
   &__wrapper {
     max-width: 860px;
@@ -50,7 +51,7 @@ export default {
     display: flex;
     aling-items: center;
     justify-content: spase-between;
-    width: 1540px;
+    width: 100%;
     background-color:rgb(10, 10, 9);
     height: 89px;
     margin-left: -341px;

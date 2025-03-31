@@ -66,6 +66,7 @@ export default {
   justify-content: center;
   flex-wrap: wrap;
   gap: 35px 20px;
+  overflow: auto;
 
   :deep(.card) {
     width: 312px;
