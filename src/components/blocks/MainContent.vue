@@ -7,7 +7,7 @@
       :description="item.description"
       :urlImage="item.img"
       :price="item.price"
-      @clickProductBtn="addToBasket(item.id)"
+      @clickProductBtn="addToBasket(item)"
     />
   </div>
 </template>
@@ -15,6 +15,7 @@
 <script>
 import { computed } from 'vue'
 import { useStore } from 'vuex'
+import { uuid } from 'vue-uuid'
 import ProduktItem from '@/components/elements/ProduktItem'
 
 export default {
@@ -31,8 +32,16 @@ export default {
       return store.getters.getProducts
     })
 
-    const addToBasket = (id) => {
-      store.commit('setAddProductsInBasket', id)
+    const addToBasket = (item) => {
+      store.commit('setAddProductsInBasket',
+        {
+          idx: uuid.v1(),
+          id: item.id,
+          img: item.img,
+          title: item.title,
+          price: item.price
+        }
+      )
     }
 
     return {

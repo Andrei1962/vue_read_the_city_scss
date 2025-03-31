@@ -8,7 +8,7 @@
       :description="item.description"
       :urlImage="item.img"
       :price="item.price"
-      @clickProductBtn="deleteProductsInBasket(item.id)"
+      @clickProductBtn="deleteProductsInBasket(item.idx)"
     />
   </div>
 </template>
@@ -31,8 +31,8 @@ export default {
       return store.getters.getBasketProducts
     })
 
-    const deleteProductsInBasket = (id) => {
-      store.commit('setDeleteProductsInBasket', id)
+    const deleteProductsInBasket = (idx) => {
+      store.commit('setDeleteProductsInBasket', idx)
     }
     return {
       productsInBasket,

@@ -70,16 +70,22 @@ export default {
     getBasketProducts: state => state.BasketProducts
   },
   mutations: {
-    setAddProductsInBasket: (state, val) => {
-      const product = state.Products.find((item) => item.id === val)
-      if (product) {
-        state.BasketProducts.push(product)
-      }
-      state.CountProductsInBasket = state.BasketProducts.length
-      state.AllPriceProductsInBasket = state.BasketProducts.reduce((sum, current) => { return sum + current.price }, 0)
+    setAddProductsInBasket (state, val) {
+      state.BasketProducts.push(val)
+      this.commit('setUpdateCounts')
     },
-    setDeleteProductsInBasket: (state, val) => {
-      state.BasketProducts = state.BasketProducts.filter((item) => item.id !== val)
+    setDeleteProductsInBasket (state, val) {
+      state.BasketProducts = state.BasketProducts.filter((item) => item.idx !== val)
+      this.commit('setUpdateCounts')
+    },
+    setCurrentProduct (state, val) {
+      state.Products.forEach((item) => {
+        if (item.idx === +val) {
+          state.CurrentProduct = item
+        }
+      })
+    },
+    setUpdateCounts (state) {
       state.CountProductsInBasket = state.BasketProducts.length
       state.AllPriceProductsInBasket = state.BasketProducts.reduce((sum, current) => { return sum + current }, 0)
     }
