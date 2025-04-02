@@ -5,29 +5,33 @@
       <span class=" form__toggle" @click="toggleForm">{{ namesForm.toggleName }}</span>
       <h2 class="form__title">{{ namesForm.titleForm }}</h2>
 
-      <div class="form__item">
-        <input
-          tape="text"
-          placeholder="Логин"
-          v-model.trim="login"
-          @input="getLaunchValidForm"
-        >
-        <p style="color: red;">{{ errorLogin }}</p>
-      </div>
+      <input
+        type="text"
+        class="input__email"
+        placeholder="Логин"
+        v-model.trim="login"
+        @input="getLaunchValidForm"
+      >
+      <p style="color: red;">{{ errorLogin }}</p>
 
-      <div class="form__item">
-        <input
-          tape="text"
-          placeholder="Пароль"
-          v-model.trim="password"
-          @input="getLaunchValidForm"
-        >
-        <p style="color: red;">{{ errorPassword }}</p>
-      </div>
+      <input
+        type="password"
+        class="input__password"
+        placeholder="Пароль"
+        v-model.trim="password"
+        @input="getLaunchValidForm"
+      >
+      <p style="color: red;">{{ errorPassword }}</p>
 
-      <label for="" class="form__label">
-        <input type="chackbox">
+      <label for="" class="input__label">
+        <input type="checkbox">
         Я согласен получать обновления на почту
+      </label>
+
+      <label class="input__customCheckbox">
+        <input type="checkbox" class="input__customCheckbox_input">
+        <span class="input__customCheckbox_checkmark" ></span>
+        <span class="input__customCheckbox_label" >Я согласен с Правилами пользования приложением</span>
       </label>
 
       {{ errorValidAuthReg }}
@@ -152,73 +156,138 @@ export default {
 
 <style lang="scss" scoped>
 .main {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   background: url('../assets/images/authBackground.png') no-repeat;
   background-size: cover;
-}
 
-.form {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  gap: 30px;
-  width: 460px;
-  height: 340px;
-  background-color: #ffffff;
-  border-radius: 5px;
-  padding: 7px 20px 34px 20px;
-
-  &__toggle {
+  .form {
     position: relative;
-    font-family: Montserrat;
-    font-weight: 300;
-    font-size: 11px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    text-align: right;
-    text-decoration: underline;
-    text-decoration-style: solid;
-    text-decoration-offset: 0%;
-    text-decoration-thickness: 0%;
-    color: #D58C51;
-    right: -160px;
-  }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    width: 460px;
+    height: 340px;
+    background-color: #ffffff;
+    border-radius: 5px;
+    padding: 7px 20px 34px 20px;
 
-  &__title {
-    font-family: Montserrat;
-    font-weight: 700;
-    font-size: 31px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    text-transform: uppercase;
-    color: #161516;
-  }
+    &__toggle {
+      position: relative;
+      font-family: Montserrat;
+      font-weight: 300;
+      font-size: 11px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      text-align: right;
+      text-decoration: underline;
+      text-decoration-style: solid;
+      text-decoration-offset: 0%;
+      text-decoration-thickness: 0%;
+      color: #D58C51;
+      right: -160px;
+      margin-top: 50px;
+    }
 
-  &__item {
-    width: 100%;
-    height: 39px;
-    border-radius: 61px;
-    border: 1px solid #D58C51;
-    font-family: Montserrat;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: #161516;
-  }
+    &__title {
+      position: relative;
+      font-family: Montserrat;
+      font-weight: 300;
+      font-size: 11px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      text-align: right;
+      text-decoration: underline;
+      text-decoration-style: solid;
+      text-decoration-offset: 0%;
+      text-decoration-thickness: 0%;
+      color: #151615;
+    }
 
-  &__label {
-    font-family: Montserrat;
-    font-weight: 300;
-    font-size: 11px;
-    line-height: 100%;
-    letter-spacing: 0%;
-    color: #161516;
+    .input {
+      position: reactive;
+      display: flex;
+      align-items: center;
+      justify-content: flex-start;
+      width: 100%;
+      height: 39px;
+      border-radius: 61px;
+      border: 1px solid #D58C51;
+      font-family: Montserrat;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      color: #161516;
+      padding-left: 20px;
+
+      &__email {
+        position: reactive;
+        margin: auto 0;
+        margin-left: 20px;
+      }
+
+      &__password {
+        position: relative;
+        outline: none;
+        margin: auto 0;
+        margin-left: 20px;
+      }
+
+      &__label {
+        font-family: Montserrat;
+        font-weight: 300;
+        font-size: 11px;
+        line-height: 100%;
+        letter-spacing: 0%;
+        color: #161516;
+      }
+
+      &__customCheckbox {
+        position: relative;
+        display: flex;
+        align-items: flex-end;
+        cursor: pointer;
+        color: #787878;      /* цвет звездочки черный */
+        margin-left: -9px;
+        top: 280px;
+
+        &_input {
+          position: relative;
+          opacity: 0;
+          cursor: pointer;
+          height: 0;
+          width: 0;
+        }
+
+        &_checkmark {
+          position: relative;
+          display: block;
+          width: 18px;
+          height: 18px;
+          border-radius: 50%;
+          left: 6px;
+          border: 2px solid #787878;/* цвет рамки галочки */
+          margin-right: 10px;
+        }
+
+        &_label {
+          position: relative;
+          color: #787878; /* цвет текста */
+          margin-left: 10px;
+          font-family: Roboto;
+          font-weight: 400;
+          font-size: 14px;
+          line-height: 16px;
+        }
+      }
+    }
   }
+}
 
 </style>
