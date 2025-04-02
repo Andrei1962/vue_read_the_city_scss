@@ -2,7 +2,7 @@
   <main class="main">
     <form action="" class="form">
                 <!-- клик на верхную строку - зарегистрироваться -->
-      <span class=" form__toggle" @click="toggleForm">{{ namesForm.toggleName }}</span>
+      <span class="form__toggle" @click="toggleForm">{{ namesForm.toggleName }}</span>
       <h2 class="form__title">{{ namesForm.titleForm }}</h2>
 
       <input
@@ -12,7 +12,7 @@
         v-model.trim="login"
         @input="getLaunchValidForm"
       >
-      <p style="color: red;">{{ errorLogin }}</p>
+      <p class="input__loginError">{{ errorLogin }}</p>
 
       <input
         type="password"
@@ -21,7 +21,7 @@
         v-model.trim="password"
         @input="getLaunchValidForm"
       >
-      <p style="color: red;">{{ errorPassword }}</p>
+      <p class="input__passwordError">{{ errorPassword }}</p>
 
       <label for="" class="input__label">
         <input type="checkbox">
@@ -128,11 +128,11 @@ export default {
 
       if (isToggleForm.value) {
         namesForm.toggleName = 'Зарегистрироватся'
-        namesForm.titleForm = 'Вход'
+        namesForm.titleForm = 'ВХОД'
         namesForm.buttonName = 'Войти'
       } else {
         namesForm.toggleName = 'Авторизоваться'
-        namesForm.titleForm = 'Регистрация'
+        namesForm.titleForm = 'РЕГИСТРАЦИЯ'
         namesForm.buttonName = 'Зарегистрироватся'
       }
     }
@@ -156,7 +156,6 @@ export default {
 
 <style lang="scss" scoped>
 .main {
-  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -169,74 +168,89 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    gap: 30px;
+    justify-content: space-between;
+    gap: 15px;
     width: 460px;
     height: 340px;
     background-color: #ffffff;
     border-radius: 5px;
-    padding: 7px 20px 34px 20px;
+    padding: 9px 20px 47px 20px;
 
     &__toggle {
-      position: relative;
       font-family: Montserrat;
       font-weight: 300;
       font-size: 11px;
       line-height: 100%;
-      letter-spacing: 0%;
       text-align: right;
       text-decoration: underline;
       text-decoration-style: solid;
       text-decoration-offset: 0%;
       text-decoration-thickness: 0%;
       color: #D58C51;
-      right: -160px;
-      margin-top: 50px;
+      cursor: pointer;
+      margin-buttom: 13px;
     }
 
     &__title {
-      position: relative;
       font-family: Montserrat;
-      font-weight: 300;
-      font-size: 11px;
+      font-weight: 900;
+      font-size: 31px;
       line-height: 100%;
-      letter-spacing: 0%;
-      text-align: right;
-      text-decoration: underline;
-      text-decoration-style: solid;
-      text-decoration-offset: 0%;
-      text-decoration-thickness: 0%;
+      text-transform: uppercase;
       color: #151615;
+      margin-buttom: 36px;
     }
 
     .input {
-      position: reactive;
+      position: relative;
       display: flex;
       align-items: center;
       justify-content: flex-start;
-      width: 100%;
-      height: 39px;
-      border-radius: 61px;
-      border: 1px solid #D58C51;
       font-family: Montserrat;
       font-weight: 400;
       font-size: 16px;
       line-height: 100%;
-      letter-spacing: 0%;
       color: #161516;
-      padding-left: 20px;
 
       &__login {
-        position: reactive;
-        margin: auto 0;
-        margin-left: 20px;
+        position: absolute;
+        border: 1px solid #D58C51;
+        width: 100%;
+        height: 39px;
+        border-radius: 61px;
+        padding-left: 18px;
+        margin-buttom: 15px;
+        top: 110px;
       }
 
       &__password {
-        position: relative;
-        outline: none;
-        margin: auto 0;
-        margin-left: 20px;
+        position: absolute;
+        border: 1px solid #D58C51;
+        width: 100%;
+        height: 39px;
+        border-radius: 61px;
+        padding-left: 18px;
+        margin-buttom: 15px;
+        top: 175px;
+      }
+
+      &__loginError {
+        color: #FF0B0B;
+        font-family: Montserrat;
+        font-weight: 300;
+        font-size: 8px;
+        line-height: 100%;
+        margin-buttom: 1px;
+      }
+
+      &__passwordError {
+        color: #FF0B0B;
+        font-family: Montserrat;
+        font-weight: 300;
+        font-size: 8px;
+        line-height: 100%;
+        text-align: left;
+        margin-buttom: 1px;
       }
 
       &__label {
@@ -246,6 +260,7 @@ export default {
         line-height: 100%;
         letter-spacing: 0%;
         color: #161516;
+        margin-buttom: 5px;
       }
 
       &__customCheckbox {
@@ -272,18 +287,19 @@ export default {
           height: 18px;
           border-radius: 50%;
           left: 6px;
-          border: 2px solid #787878;/* цвет рамки галочки */
+          border: 1px solid #D58C51;/* цвет рамки чекбокса */
           margin-right: 10px;
         }
 
         &_label {
           position: relative;
-          color: #787878; /* цвет текста */
-          margin-left: 10px;
-          font-family: Roboto;
-          font-weight: 400;
-          font-size: 14px;
-          line-height: 16px;
+          color: #301411; /* цвет текста */
+          margin-left: 9px;
+          font-family: Montserrat;
+          font-weight: 300;
+          font-size: 11px;
+          line-height: 100%;
+          margin-buttom: 30px;
         }
       }
     }

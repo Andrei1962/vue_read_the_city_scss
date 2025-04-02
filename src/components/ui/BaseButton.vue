@@ -34,13 +34,11 @@ export default {
 
 <style lang="scss" scoped>
 .button {
-  padding: 12px 75px;
+  padding: 12px 77px;
   font-size: 14px;
   font-weight: 400;
-  color: #D58C51;
-  background: #161516;
-  border: 1px solid;
-  border-color: #D58C51;
+  color: #131313;
+  background-color: #D58C51;
   cursor: pointer;
   transition: 0.5s;
 
