@@ -7,7 +7,7 @@
 
       <input
         type="text"
-        class="input__email"
+        class="input__login"
         placeholder="Логин"
         v-model.trim="login"
         @input="getLaunchValidForm"
@@ -31,7 +31,7 @@
       <label class="input__customCheckbox">
         <input type="checkbox" class="input__customCheckbox_input">
         <span class="input__customCheckbox_checkmark" ></span>
-        <span class="input__customCheckbox_label" >Я согласен с Правилами пользования приложением</span>
+        <span class="input__customCheckbox_label" >Я согласен получать обновления на почту</span>
       </label>
 
       {{ errorValidAuthReg }}
@@ -226,7 +226,7 @@ export default {
       color: #161516;
       padding-left: 20px;
 
-      &__email {
+      &__login {
         position: reactive;
         margin: auto 0;
         margin-left: 20px;
@@ -255,7 +255,7 @@ export default {
         cursor: pointer;
         color: #787878;      /* цвет звездочки черный */
         margin-left: -9px;
-        top: 280px;
+        top: 1px;
 
         &_input {
           position: relative;
