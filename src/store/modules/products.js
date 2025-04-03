@@ -75,10 +75,12 @@ export default {
     setAddProductsInBasket (state, val) {
       state.BasketProducts.push(val)
       this.commit('setUpdateCounts')
+      this.commit('setUpdateInfoUserBasket')
     },
     setDeleteProductsInBasket (state, val) {
       state.BasketProducts = state.BasketProducts.filter((item) => item.idx !== val)
       this.commit('setUpdateCounts')
+      this.commit('setUpdateInfoUserBasket')
     },
     setCurrentProduct (state, val) {
       state.Products.forEach((item) => {
@@ -89,7 +91,28 @@ export default {
     },
     setUpdateCounts (state) {
       state.CountProductsInBasket = state.BasketProducts.length
-      state.AllPriceProductsInBasket = state.BasketProducts.reduce((sum, current) => { return sum + current.price }, 0)
+      state.AllPriceProductsInBasket = state.BasketProducts.reduce((sum, current) => {
+        return sum + current.price
+      }, 0)
+    },
+    setDataDistribution (state) {
+      state.BasketProducts = JSON.parse(localStorage.currentUser).basket
+      this.commit('setUpdateCounts')
+      this.commit('setUpdateInfoUserBasket')
+    },
+    setUpdateInfoUserBasket (state) {
+      const infoUser = JSON.parse(localStorage.currentUser)
+      const users = JSON.parse(localStorage.userList)
+
+      const user = users.find((item) => item.login === infoUser.currentUser)
+
+      if (user) {
+        user.basket = state.BasketProducts
+        infoUser.basket = state.BasketProducts
+      }
+
+      localStorage.userList = JSON.stringify(users)
+      localStorage.currentUser = JSON.stringify(infoUser)
     }
   }
 }

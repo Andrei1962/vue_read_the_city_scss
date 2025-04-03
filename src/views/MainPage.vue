@@ -6,7 +6,9 @@
 </template>
 
 <script>
-// @ is an alias to /src
+// import { ref } from 'vue'
+import { onBeforeMount } from 'vue'
+import { userStore } from 'vuex'
 import HeaderMain from '@/components/blocks/HeaderMain.vue'
 import MainContent from '@/components/blocks/MainContent.vue'
 
@@ -17,8 +19,13 @@ export default {
     MainContent
   },
   setup () {
+    const store = userStore()
+    onBeforeMount(() => {
+      store.commit('setDataDistribution')
+    })
   }
 }
+
 </script>
 <style lang="scss" scoped>
 .home {

@@ -23,20 +23,15 @@
       >
       <p class="input__passwordError">{{ errorPassword }}</p>
 
-      <label for="" class="input__label">
-        <input type="checkbox">
-        Я согласен получать обновления на почту
-      </label>
-
       <label class="input__customCheckbox">
         <input type="checkbox" class="input__customCheckbox_input">
         <span class="input__customCheckbox_checkmark" ></span>
         <span class="input__customCheckbox_label" >Я согласен получать обновления на почту</span>
       </label>
 
-      {{ errorValidAuthReg }}
+      <p class="input__customCheckbox_errorValidAuthReg">{{ errorValidAuthReg }}логин</p>
 
-      <BaseButton :name= "namesForm.buttonName" orange/>
+      <BaseButton :name="namesForm.buttonName" class="input__customCheckbox_button"/>
     </form>
   </main>
 </template>
@@ -168,15 +163,13 @@ export default {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
-    gap: 15px;
     width: 460px;
     height: 340px;
     background-color: #ffffff;
     border-radius: 5px;
-    padding: 9px 20px 47px 20px;
 
     &__toggle {
+      position: absolute;
       font-family: Montserrat;
       font-weight: 300;
       font-size: 11px;
@@ -188,17 +181,18 @@ export default {
       text-decoration-thickness: 0%;
       color: #D58C51;
       cursor: pointer;
-      margin-buttom: 13px;
+      top: 9px;
     }
 
     &__title {
+      position: absolute;
       font-family: Montserrat;
       font-weight: 900;
       font-size: 31px;
       line-height: 100%;
       text-transform: uppercase;
       color: #151615;
-      margin-buttom: 36px;
+      top: 36px;
     }
 
     .input {
@@ -215,42 +209,43 @@ export default {
       &__login {
         position: absolute;
         border: 1px solid #D58C51;
-        width: 100%;
+        width: 85%;
         height: 39px;
         border-radius: 61px;
         padding-left: 18px;
-        margin-buttom: 15px;
         top: 110px;
       }
 
       &__password {
         position: absolute;
         border: 1px solid #D58C51;
-        width: 100%;
+        width: 85%;
         height: 39px;
         border-radius: 61px;
         padding-left: 18px;
         margin-buttom: 15px;
-        top: 175px;
+        top: 164px;
       }
 
       &__loginError {
+        position: absolute;
         color: #FF0B0B;
         font-family: Montserrat;
         font-weight: 300;
         font-size: 8px;
         line-height: 100%;
-        margin-buttom: 1px;
+        margin-top: 154px;
       }
 
       &__passwordError {
+        position: absolute;
         color: #FF0B0B;
         font-family: Montserrat;
         font-weight: 300;
         font-size: 8px;
         line-height: 100%;
         text-align: left;
-        margin-buttom: 1px;
+        margin-top: 208px;
       }
 
       &__label {
@@ -260,20 +255,19 @@ export default {
         line-height: 100%;
         letter-spacing: 0%;
         color: #161516;
-        margin-buttom: 5px;
+        margin-top: 5px;
       }
 
       &__customCheckbox {
-        position: relative;
+        position: absolute;
         display: flex;
         align-items: flex-end;
         cursor: pointer;
         color: #787878;      /* цвет звездочки черный */
         margin-left: -9px;
-        top: 1px;
+        top: 220px;
 
         &_input {
-          position: relative;
           opacity: 0;
           cursor: pointer;
           height: 0;
@@ -281,7 +275,6 @@ export default {
         }
 
         &_checkmark {
-          position: relative;
           display: block;
           width: 18px;
           height: 18px;
@@ -292,14 +285,29 @@ export default {
         }
 
         &_label {
-          position: relative;
           color: #301411; /* цвет текста */
           margin-left: 9px;
           font-family: Montserrat;
           font-weight: 300;
           font-size: 11px;
           line-height: 100%;
-          margin-buttom: 30px;
+          margin-top: -5px;
+        }
+
+        &_errorValidAuthReg {
+          position: absolute;
+          color: #FF0B0B;
+          font-family: Montserrat;
+          font-weight: 300;
+          font-size: 8px;
+          line-height: 100%;
+          margin-top: 248px;
+        }
+
+        &_button {
+          position: absolute;
+          top: 264px;
+          background-color: #D58C51;
         }
       }
     }
