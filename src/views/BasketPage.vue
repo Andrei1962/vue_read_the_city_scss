@@ -30,14 +30,14 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   width: 100%;
-  height: 100vh;
+  height: 100%;
   background-color: #161516;
   overflow: auto;
 
   &__wrapper {
-    max-width: 860px;
+    width: 100%;
     margin: 0 auto;
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/
   }
 
   &__line {

@@ -8,7 +8,7 @@
 <script>
 // import { ref } from 'vue'
 import { onBeforeMount } from 'vue'
-import { userStore } from 'vuex'
+import { useStore } from 'vuex'
 import HeaderMain from '@/components/blocks/HeaderMain.vue'
 import MainContent from '@/components/blocks/MainContent.vue'
 
@@ -19,7 +19,7 @@ export default {
     MainContent
   },
   setup () {
-    const store = userStore()
+    const store = useStore()
     onBeforeMount(() => {
       store.commit('setDataDistribution')
     })

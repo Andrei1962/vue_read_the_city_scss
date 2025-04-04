@@ -22,6 +22,14 @@
         <BasketMcon/>
       </router-link>
     </div>
+    <div class="header__authh">
+      <router-link to="/auth">
+        <baseButton
+          class="header__auth"
+          name="Выйти"
+        />
+      </router-link>
+    </div>
   </header>
 </template>
 
@@ -31,12 +39,14 @@ import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 import BasketMcon from '@/components/icons/BasketMcon.vue'
 import BaseActionBtn from '@/components/ui/BaseActionBtn'
+import BaseButton from '@/components/ui/BaseButton.vue'
 
 export default {
   name: 'HeaderMain',
   components: {
     BasketMcon,
-    BaseActionBtn
+    BaseActionBtn,
+    BaseButton
   },
   props: {
     basketHeader: {
@@ -59,8 +69,9 @@ export default {
     })
 
     const goBack = () => {
-      router.go(-1)
+      router.push('/')
     }
+
     return {
       countBasket,
       sumInBasket,
@@ -72,7 +83,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  max-width: 1310px;
+  width: 100%;
   margin: 0 auto;
 }
 
@@ -83,6 +94,7 @@ export default {
 }
 
 .header {
+  padding-left: 250px;
   padding-top: 53px;
   padding-bottom: 38px;
 
@@ -137,6 +149,18 @@ export default {
     &:hover {
       background: #151615;
     }
+  }
+
+  &__auth {
+    height: 42px;
+    width: 200px;
+    color: #D58C51;
+    background-color: #151615;
+    border: 1px solid #D58C51;
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
   }
 }
 

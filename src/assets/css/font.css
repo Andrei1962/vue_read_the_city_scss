@@ -1,7 +1,16 @@
-
-.montserrat-<uniquifier> {
-  font-family: "Montserrat", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: <weight>;
-  font-style: normal;
+@font-face {
+	font-family: 'Montserrat';
+	src: url('../../assets/fonts/Montserrat-Regular.eot'),
+	url('src/assets/fonts/Montserrat-Regular.woff') format('woff'),
+	url('src/assets/fonts/Montserrat-Regular.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+@font-face {
+	font-family: 'Montserrat';
+	src: url('src/assets/fonts/Montserrat-ExtraBold.eot'),
+	url('src/assets/fonts/Montserrat-ExtraBold.woff') format('woff'),
+	url('src/assets/fonts/Montserrat-ExtraBold.ttf') format('truetype');
+	font-weight: 800;
+	font-style: normal;
 }

@@ -25,10 +25,4 @@ export default {
     })
   }
 }
-
 </script>
-
-<style lang="scss" scoped>      /*загружаем шрифт*/
-@font-face { font-family: "Montserrat"; src: local("Montserrat"), url("./assets/fonts/Montserrat-Light.ttf") format("truetype"); }
-
-</style>

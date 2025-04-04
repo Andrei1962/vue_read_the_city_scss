@@ -6,13 +6,15 @@
         <span class="footer__order-sum">{{ sumInBasket }} ₽ </span>
       </p>
     </div>
-    <BaseButton  @clickBaseButton="arrangeBasket(item)" class="footer__order-btn" name="Оформить заказ" orange/>
+    <BaseButton  @clickBaseButton="arrangeBasket" class="footer__order-btn" name="Оформить заказ" orange/>
   </footer>
 </template>
 
 <script>
 import { computed } from 'vue'
 import { useStore } from 'vuex'
+import { useRouter } from 'vue-router'
+
 import BaseButton from '@/components/ui/BaseButton'
 
 export default {
@@ -23,20 +25,21 @@ export default {
   props: {
   },
   setup () {
+    const router = useRouter()
     const store = useStore()
     const sumInBasket = computed(() => {
       return store.getters.getAllPriceProductsInBasket
     })
-    const arrangeBasket = (item) => {
-      store.commit('setCurrentProduct',
-        {
-          id: item.id,
-          img: item.img,
-          title: item.title,
-          price: item.price
-        }
-      )
+
+    const arrangeBasket = () => {
+      if (sumInBasket.value !== 0) {
+        router.push('/order')
+        store.commit('setClearBasket')
+      } else {
+        alert('Корзина пуста')
+      }
     }
+
     return {
       sumInBasket,
       arrangeBasket

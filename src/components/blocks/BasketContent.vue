@@ -10,7 +10,6 @@ d<template>
       :price="item.price"
       @clickProductBtn="deleteProductsInBasket(item.idx)"
     />
-    <div id="arrange" class="basket__arrange">Ваш заказ оформлен, менеджер свяжется с вами</div>
   </div>
 </template>
 
@@ -48,7 +47,6 @@ export default {
   display: flex;
   flex-direction: column;
   gap: 31px;
-  overflow: auto;
   margin-bottom: 40px;
   height: calc(100vh - 300px);
 }

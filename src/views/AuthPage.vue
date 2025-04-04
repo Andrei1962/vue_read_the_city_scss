@@ -23,22 +23,33 @@
       >
       <p class="input__passwordError">{{ errorPassword }}</p>
 
-      <label class="input__customCheckbox">
-        <input type="checkbox" class="input__customCheckbox_input">
-        <span class="input__customCheckbox_checkmark" ></span>
-        <span class="input__customCheckbox_label" >Я согласен получать обновления на почту</span>
+      <label class="form__label">
+        <input type="checkbox" class="form__label_checkbox">
       </label>
 
-      <p class="input__customCheckbox_errorValidAuthReg">{{ errorValidAuthReg }}логин</p>
+      <label class="form__customCheckbox">
+        <input type="checkbox" class="form__customCheckbox_input">
+        <span class="form__customCheckbox_checkmark" ></span>
+        <span class="form__customCheckbox_label" >Я согласен получать обновления на почту</span>
+      </label>
 
-      <BaseButton :name="namesForm.buttonName" class="input__customCheckbox_button"/>
+      <p class="form__customCheckbox_errorValidAuthReg">{{ errorValidAuthReg }}</p>
+
+      <div class="form__button">
+        <router-link to="/basket">
+          <baseButton
+            name="Войти"
+          />
+        </router-link>
+      </div>
     </form>
   </main>
 </template>
 
 <script>
 import { ref, reactive, onBeforeMount } from 'vue'
-// import { useRouter } from 'vue-router'
+import { useRouter } from 'vue-router'
+
 import BaseButton from '@/components/ui/BaseButton'
 
 export default {
@@ -49,7 +60,7 @@ export default {
   props: {
   },
   setup () {
-    // const router = useRouter()
+    const router = useRouter()
 
     const login = ref('')
     const password = ref('')
@@ -71,6 +82,73 @@ export default {
       }
     })
 
+    // обработка клика на верхную строку -Зарегистрироваться\Авторизоваться
+    const toggleForm = () => {
+      // изменение ключа Авторизация-Регистрация
+      isToggleForm.value = !isToggleForm.value
+      console.log(isToggleForm.value)
+
+      login.value = ''
+      password.value = ''
+      errorLogin.value = ''
+      errorPassword.value = ''
+      errorValidAuthReg.value = ''
+
+      if (isToggleForm.value) {
+        namesForm.toggleName = 'Зарегистрироватся'
+        namesForm.titleForm = 'ВХОД'
+        namesForm.buttonName = 'Войти'
+      } else {
+        namesForm.toggleName = 'Авторизоваться'
+        namesForm.titleForm = 'РЕГИСТРАЦИЯ'
+        namesForm.buttonName = 'Зарегистрироватся'
+      }
+    }
+
+    const setRegistrationUser = () => {
+      getValidInputReg()
+      if (errorLogin.value !== '' && errorPassword.value !== '') {
+        return
+      }
+
+      const userList = JSON.parse(localStorage.userList) /* получаем массив из зарегистрированных пользователей */
+
+      const isActiveUser = userList.some(item => { /* проверка на совпадение */
+        return item.login === login.value
+      })
+
+      if (isActiveUser) {
+        errorValidAuthReg.value = 'Такой логин уже существует, придумайте другой'
+      } else {
+        userList.push({
+          login: login.value,
+          password: password.value,
+          basket: []
+        })
+        toggleForm()
+      }
+
+      localStorage.userList = JSON.stringify(userList)
+    }
+
+    const goAuthorization = () => {
+      getValidInputAuth()
+      const userAuth = JSON.parse(localStorage.userList)
+
+      const currentSeachUser = userAuth.find(item => item.login === login.value)
+
+      if (currentSeachUser?.password === password.value) {
+        localStorage.isAuth = JSON.stringify(true)
+        localStorage.currentUser = JSON.stringify({
+          currentUser: currentSeachUser.login,
+          basket: currentSeachUser.basket
+        })
+        router.push('/')
+      } else if (password.value.length !== 0 && login.value.length !== 0) {
+        errorValidAuthReg.value = 'Логин или пароль не верный'
+      }
+    }
+
     const getLaunchValidForm = () => {
       isToggleForm.value ? getValidInputAuth() : getValidInputReg()
     }
@@ -85,13 +163,13 @@ export default {
       }
 
       if (login.value.length > 0 && login.value.length < 4) {
-        errorLogin.value = 'Логин должен содержать не менее 4=х символов'
+        errorLogin.value = 'Логин должен содержать не менее 4-х символов'
       } else if (login.value.length >= 4) {
         errorLogin.value = ''
       }
 
       if (password.value.length > 0 && password.value.length < 4) {
-        errorPassword.value = 'Пароль должен содержать не менее 4=х символов'
+        errorPassword.value = 'Пароль должен содержать не менее 4-х символов'
       } else if (password.value.length >= 4) {
         errorPassword.value = ''
       }
@@ -111,27 +189,6 @@ export default {
       }
     }
 
-    // обработка клика на верхную строку -Зарегистрироваться\Авторизоваться
-    const toggleForm = () => {
-      // изменение ключа Авторизация-Регистрация
-      isToggleForm.value = !isToggleForm.value
-
-      login.value = ''
-      password.value = ''
-      errorLogin.value = ''
-      errorPassword.value = ''
-
-      if (isToggleForm.value) {
-        namesForm.toggleName = 'Зарегистрироватся'
-        namesForm.titleForm = 'ВХОД'
-        namesForm.buttonName = 'Войти'
-      } else {
-        namesForm.toggleName = 'Авторизоваться'
-        namesForm.titleForm = 'РЕГИСТРАЦИЯ'
-        namesForm.buttonName = 'Зарегистрироватся'
-      }
-    }
-
     return {
       login,
       password,
@@ -143,7 +200,9 @@ export default {
       toggleForm,
       getValidInputReg,
       getValidInputAuth,
-      getLaunchValidForm
+      getLaunchValidForm,
+      goAuthorization,
+      setRegistrationUser
     }
   }
 }
@@ -151,12 +210,12 @@ export default {
 
 <style lang="scss" scoped>
 .main {
+  background: url('../assets/images/authBackground.png') no-repeat;
+  background-size: cover;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background: url('../assets/images/authBackground.png') no-repeat;
-  background-size: cover;
 
   .form {
     position: relative;
@@ -170,11 +229,11 @@ export default {
 
     &__toggle {
       position: absolute;
+      align-self: flex-end;
       font-family: Montserrat;
       font-weight: 300;
       font-size: 11px;
       line-height: 100%;
-      text-align: right;
       text-decoration: underline;
       text-decoration-style: solid;
       text-decoration-offset: 0%;
@@ -182,6 +241,7 @@ export default {
       color: #D58C51;
       cursor: pointer;
       top: 9px;
+      right: 19px;
     }
 
     &__title {
@@ -229,87 +289,101 @@ export default {
 
       &__loginError {
         position: absolute;
+        align-self: flex-start;
         color: #FF0B0B;
         font-family: Montserrat;
         font-weight: 300;
         font-size: 8px;
         line-height: 100%;
         margin-top: 154px;
+        margin-left: 38px;
       }
 
       &__passwordError {
+        align-self: flex-start;
         position: absolute;
         color: #FF0B0B;
         font-family: Montserrat;
         font-weight: 300;
         font-size: 8px;
         line-height: 100%;
-        text-align: left;
         margin-top: 208px;
+        margin-left: 38px;
+      }
+    }
+
+    &__label {
+      position: absolute;
+      align-self: flex-start;
+      font-family: Montserrat;
+      font-weight: 300;
+      font-size: 11px;
+      line-height: 100%;
+      letter-spacing: 0%;
+      color: #161516;
+      top: 221px;
+      margin-left: 20px;
+      z-index: 1;
+
+      &_checkbox {
+        border-color: #D58C51;
+      }
+    }
+
+    &__customCheckbox {
+      position: absolute;
+      display: flex;
+      align-self: flex-start;
+      cursor: pointer;
+      color: #787878;      /* цвет звездочки черный */
+      margin-left: 20px;
+      top: 220px;
+
+      &_input {
+        position: absolute;
+        opacity: 0;
+        cursor: pointer;
+        height: 0;
+        width: 0;
+        color: #000000;
+        top: 246px;
       }
 
-      &__label {
+      &_checkmark {
+        display: block;
+        width: 18px;
+        height: 18px;
+        border-radius: 50%;
+        left: 6px;
+        border: 1px solid #D58C51;/* цвет рамки чекбокса */
+        margin-right: 10px;
+      }
+
+      &_label {
+        color: #301411; /* цвет текста */
+        margin-left: 9px;
         font-family: Montserrat;
         font-weight: 300;
         font-size: 11px;
         line-height: 100%;
-        letter-spacing: 0%;
-        color: #161516;
         margin-top: 5px;
       }
 
-      &__customCheckbox {
+      &_errorValidAuthReg {
         position: absolute;
-        display: flex;
-        align-items: flex-end;
-        cursor: pointer;
-        color: #787878;      /* цвет звездочки черный */
-        margin-left: -9px;
-        top: 220px;
-
-        &_input {
-          opacity: 0;
-          cursor: pointer;
-          height: 0;
-          width: 0;
-        }
-
-        &_checkmark {
-          display: block;
-          width: 18px;
-          height: 18px;
-          border-radius: 50%;
-          left: 6px;
-          border: 1px solid #D58C51;/* цвет рамки чекбокса */
-          margin-right: 10px;
-        }
-
-        &_label {
-          color: #301411; /* цвет текста */
-          margin-left: 9px;
-          font-family: Montserrat;
-          font-weight: 300;
-          font-size: 11px;
-          line-height: 100%;
-          margin-top: -5px;
-        }
-
-        &_errorValidAuthReg {
-          position: absolute;
-          color: #FF0B0B;
-          font-family: Montserrat;
-          font-weight: 300;
-          font-size: 8px;
-          line-height: 100%;
-          margin-top: 248px;
-        }
-
-        &_button {
-          position: absolute;
-          top: 264px;
-          background-color: #D58C51;
-        }
+        color: #FF0B0B;
+        font-family: Montserrat;
+        font-weight: 300;
+        font-size: 8px;
+        line-height: 100%;
+        margin-top: 242px;
       }
+    }
+
+    &__button {
+      position: absolute;
+      top: 264px;
+      background-color: #D58C51;
     }
   }
 }
