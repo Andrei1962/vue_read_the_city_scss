@@ -7,12 +7,12 @@
       </p>
     </div>
     <div class="footer__order-btn">
-        <router-link to="/order">
-          <baseButton name="Оформить заказ"
-            class="footer__order-btn"
-          />
-        </router-link>
-      </div>
+      <router-link to="/order">
+        <baseButton name="Оформить заказ"
+          class="footer__order-btn"
+        />
+      </router-link>
+    </div>
     <!--/* <BaseButton
       @clickBaseButton="arrangeBasket"
       class="footer__order-btn"
@@ -26,12 +26,12 @@ import { computed } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 
-/* import BaseButton from '@/components/ui/BaseButton' */
+import BaseButton from '@/components/ui/BaseButton'
 
 export default {
   name: 'FooterBasket',
   components: {
-    /* BaseButton */
+    BaseButton
   },
   props: {
   },
@@ -112,11 +112,15 @@ export default {
       margin-right: 400px;
       background-color: #D58C51;
       width: 200px;
-      align-items: center;
-      font-family: Montserrat;
-      font-weight: 700;
-      font-size: 20px;
-      color: #000000;
+      color: #131313;
+      cursor: pointer;
+      transition: 0.5s;
+
+      &:hover {
+        color:rgb(254, 249, 249);
+        background-color:rgb(186, 209, 38);
+        transition: 0.5s;
+      }
     }
   }
 }
