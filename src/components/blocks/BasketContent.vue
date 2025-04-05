@@ -49,6 +49,7 @@ export default {
   gap: 31px;
   margin-bottom: 40px;
   height: calc(100vh - 300px);
+  overflow: auto;
 }
 
 .basket__arrange {

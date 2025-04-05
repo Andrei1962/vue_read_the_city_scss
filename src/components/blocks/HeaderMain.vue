@@ -21,11 +21,19 @@
       <router-link to="/basket">
         <BasketMcon/>
       </router-link>
+      <div class="header__auth">
+        <router-link to="/auth">
+          <baseButton
+            class="header__auth"
+            name="Выйти"
+          />
+        </router-link>
+      </div>
     </div>
-    <div class="header__authh">
+    <div class="header__authh" v-if="basketHeader">
       <router-link to="/auth">
         <baseButton
-          class="header__auth"
+          class="header__authh"
           name="Выйти"
         />
       </router-link>
@@ -83,7 +91,7 @@ export default {
 
 <style lang="scss" scoped>
 .container {
-  width: 100%;
+  max-width: 1710px;
   margin: 0 auto;
 }
 
@@ -94,16 +102,18 @@ export default {
 }
 
 .header {
-  padding-left: 250px;
+  max-width: 1310px;
   padding-top: 53px;
   padding-bottom: 38px;
+  gap: 20px;
 
   &_basket {
+    width: 1710px;
     display: flex;
     align-items: center;
     justify-content: start;
-    gap: 63px;
     margin-bottom: 38px;
+    gap: 90px;
   }
 
   &__basket {
@@ -118,7 +128,6 @@ export default {
       font-weight: 500;
       font-size: 17px;
       line-height: 100%;
-      letter-spacing: 0%;
       text-align: right;
       text-decoration: none;
       color: #ffffff;
@@ -132,10 +141,10 @@ export default {
     font-weight: 700;
     font-size: 31px;
     line-height: 100%;
-    letter-spacing: 0%;
     text-transform: uppercase;
     color: #ffffff;
     text-decoration: none;
+    max-width: 671px;
   }
 
   &__button {
@@ -144,7 +153,7 @@ export default {
     border-radius: 50%;
     background-color: #151615;
     border: none;
-    padding-left: 20px;
+    padding-left: 5px;
 
     &:hover {
       background: #151615;
@@ -152,6 +161,19 @@ export default {
   }
 
   &__auth {
+    height: 42px;
+    width: 200px;
+    color: #D58C51;
+    background-color: #151615;
+    border: 1px solid #D58C51;
+    font-family: Montserrat;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 100%;
+
+  }
+
+  &__authh {
     height: 42px;
     width: 200px;
     color: #D58C51;

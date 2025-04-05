@@ -36,7 +36,7 @@
       <p class="form__customCheckbox_errorValidAuthReg">{{ errorValidAuthReg }}</p>
 
       <div class="form__button">
-        <router-link to="/basket">
+        <router-link to="/">
           <baseButton
             name="Войти"
           />

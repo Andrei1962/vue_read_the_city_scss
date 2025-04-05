@@ -6,7 +6,7 @@
         <span class="footer__order-sum">{{ sumInBasket }} ₽ </span>
       </p>
     </div>
-    <BaseButton  @clickBaseButton="arrangeBasket" class="footer__order-btn" name="Оформить заказ" orange/>
+    <BaseButton  @clickBaseButton="arrangeBasket" class="footer__order-btn" name="Оформить заказ"/>
   </footer>
 </template>
 
@@ -98,7 +98,6 @@ export default {
       font-weight: 400;
       font-size: 14px;
       line-height: 100%;
-      letter-spacing: 0%;
       margin-right: 400px;
     }
   }

@@ -35,9 +35,9 @@ export default {
   overflow: auto;
 
   &__wrapper {
-    width: 100%;
+    max-width: 860px;
     margin: 0 auto;
-    /*overflow-y: hidden;*/
+    /* overflow: auto; */
   }
 
   &__line {

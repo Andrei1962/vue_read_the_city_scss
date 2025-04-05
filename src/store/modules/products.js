@@ -1,5 +1,5 @@
 
-export default ({
+export default {
   state: {
     Products: [
       {
@@ -120,4 +120,4 @@ export default ({
       localStorage.currentUser = JSON.stringify(infoUser)
     }
   }
-})
+}

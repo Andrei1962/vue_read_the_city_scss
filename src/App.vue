@@ -20,7 +20,7 @@ export default {
       }
 
       if (!JSON.parse(localStorage.isAuth)) {
-        router.push('/auth')
+        router.push('/')
       }
     })
   }
