@@ -2,11 +2,12 @@
   <header
     :class="{
       'header container': true,
-      'header_basket': basketHeader
+      'header_basket': basketHeader,
+      'header_card' : cardHeader
     }"
     >
     <BaseActionBtn
-      v-if="basketHeader"
+      v-if="basketHeader || cardHeader"
       @clickActionBtn="goBack"
       arrow
     />
@@ -95,7 +96,7 @@ export default {
   margin: 0 auto;
 }
 
-.header, .header__basket {
+.header, .header__basket, .header_card {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -108,7 +109,16 @@ export default {
   gap: 20px;
 
   &_basket {
-    width: 1710px;
+    width: 1440px;
+    display: flex;
+    align-items: center;
+    justify-content: start;
+    margin-bottom: 38px;
+    gap: 90px;
+  }
+
+  &_card {
+    width: 1440px;
     display: flex;
     align-items: center;
     justify-content: start;

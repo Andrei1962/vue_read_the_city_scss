@@ -1,6 +1,7 @@
 <template>
   <div class="main container">
     <ProduktItem
+      @click="$router.push('/info')"
       v-for="(item, i) in productslist"
       :key="i"
       :title="item.title"
