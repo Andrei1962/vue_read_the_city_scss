@@ -6,7 +6,18 @@
         <span class="footer__order-sum">{{ sumInBasket }} ₽ </span>
       </p>
     </div>
-    <BaseButton  @clickBaseButton="arrangeBasket" class="footer__order-btn" name="Оформить заказ"/>
+    <div class="footer__order-btn">
+        <router-link to="/order">
+          <baseButton name="Оформить заказ"
+            class="footer__order-btn"
+          />
+        </router-link>
+      </div>
+    <!--/* <BaseButton
+      @clickBaseButton="arrangeBasket"
+      class="footer__order-btn"
+      name="Оформить заказ"
+    /> */ -->
   </footer>
 </template>
 
@@ -15,12 +26,12 @@ import { computed } from 'vue'
 import { useStore } from 'vuex'
 import { useRouter } from 'vue-router'
 
-import BaseButton from '@/components/ui/BaseButton'
+/* import BaseButton from '@/components/ui/BaseButton' */
 
 export default {
   name: 'FooterBasket',
   components: {
-    BaseButton
+    /* BaseButton */
   },
   props: {
   },
@@ -33,7 +44,7 @@ export default {
 
     const arrangeBasket = () => {
       if (sumInBasket.value !== 0) {
-        router.push('/order')
+        router.push('/')
         store.commit('setClearBasket')
       } else {
         alert('Корзина пуста')
@@ -63,7 +74,7 @@ export default {
     display: flex;
     aling-items: center;
     justify-content: spase-between;
-    max-width: 860px;
+    max-width: 360px;
     margin: 0 auto;
   }
 
@@ -99,6 +110,13 @@ export default {
       font-size: 14px;
       line-height: 100%;
       margin-right: 400px;
+      background-color: #D58C51;
+      width: 200px;
+      align-items: center;
+      font-family: Montserrat;
+      font-weight: 700;
+      font-size: 20px;
+      color: #000000;
     }
   }
 }
