@@ -69,7 +69,7 @@ export default {
 <style lang="scss" scoped>
 .info {
   background-color: #161516;
-  color: #ffffff;  
+  color: #ffffff;
 
   &__wrapper {
     display: flex;
@@ -97,73 +97,13 @@ export default {
         font-size: 14px;
       }
 
-      &-price
-      position: relative;
-      display: flex;
-      flex-direction: row;
-      align-items: center;
-      justify-content: space-between;
-
-      &__image {
-        position: absolute;
-        width: 501px;
-        height: 503px;
-        top: 0;
-      }
-
-      &__specification {
+      &-price {
+        position: relative;
         display: flex;
         flex-direction: row;
         align-items: center;
-        justify-content: space-between;
-
-        &-title {
-          width: 414px;
-          height: 74px;
-          font-family: Montserrat;
-          font-weight: 500;
-          font-size: 30px;
-          line-height: 100%;
-          color: #D58C51;
-        }
-
-        &-description {
-          width: 528px;
-          height: 213px;
-          font-family: Montserrat;
-          font-weight: 400;
-          font-size: 14px;
-          line-height: 100%;
-          color: #ffffff;
-        }
-
-        &__footer {
-          display: flex;
-          flex-direction: row;
-          align-items: center;
-          justify-content: space-between;
-
-          &-price {
-            width: 83px;
-            height: 28px;
-            font-family: Montserrat;
-            font-weight: 500;
-            font-size: 23px;
-            line-height: 100%;
-            color: #ffffff;
-          }
-
-          &-btn {
-            width: 200px;
-            height: 42px;
-            font-family: Montserrat;
-            font-weight: 400;
-            font-size: 14px;
-            line-height: 100%;
-            background-color: #D58C51;
-            color: #131313;
-          }
-        }
+        justify-content:
+        space-between;
       }
     }
   }
