@@ -1,7 +1,8 @@
 <template>
   <div class="card">
-    <div class="basket__wrapper">
-      <HeaderMain basketHeader/>
+    {{ currentProduct }}
+    <div class="card__wrapper">
+      <HeaderCard/>
       <ProduktItem
         :title="currentProduct?.title"
         :price="currentProduct?.price"
@@ -20,13 +21,13 @@ import { useStore } from 'vuex'
 import { useRoute } from 'vue-router'
 import { uuid } from 'vue-uuid'
 
-import HeaderMain from '@/components/blocks/HeaderMain'
+import HeaderCard from '@/components/blocks/HeaderCard'
 import ProduktItem from '@/components/elements/ProduktItem'
 
 export default {
   name: 'ProductInfoPage',
   components: {
-    HeaderMain,
+    HeaderCard,
     ProduktItem
   },
   props: {
@@ -65,10 +66,11 @@ export default {
 
 <style lang="scss" scoped>
 .card {
+  max-width: 1440px;
+  max-height: 734px;
   background-color: #161516;
-  height: 100vh;
   color: #ffffff;
-  font-size: 30px;
+  padding: 48px 70px 108px 70px;
 }
 
 </style>
