@@ -1,6 +1,6 @@
 <template>
   <main class="main">
-    <form action="" class="form">
+    <form action="" class="form" @submit.prevent="postForm">
                 <!-- клик на верхную строку - зарегистрироваться -->
       <span class="form__toggle" @click="toggleForm">{{ namesForm.toggleName }}</span>
       <h2 class="form__title">{{ namesForm.titleForm }}</h2>
@@ -36,11 +36,10 @@
       <p class="form__customCheckbox_errorValidAuthReg">{{ errorValidAuthReg }}</p>
 
       <div class="form__button">
-        <router-link to="/">
-          <baseButton
-            name="Войти"
-          />
-        </router-link>
+        <baseButton
+          :name="namesForm.buttonName"
+          type="submit"
+        />
       </div>
     </form>
   </main>
@@ -81,6 +80,14 @@ export default {
         localStorage.setItem('userList', JSON.stringify([]))
       }
     })
+
+    const postForm = () => {
+      if (isToggleForm.value) {
+        goAuthorization()
+      } else {
+        setRegistrationUser()
+      }
+    }
 
     // обработка клика на верхную строку -Зарегистрироваться\Авторизоваться
     const toggleForm = () => {
@@ -197,6 +204,7 @@ export default {
       errorValidAuthReg,
       isToggleForm,
       namesForm,
+      postForm,
       toggleForm,
       getValidInputReg,
       getValidInputAuth,

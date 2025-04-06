@@ -84,7 +84,7 @@ export default {
     },
     setCurrentProduct (state, val) {
       state.Products.forEach((item) => {
-        if (item.idx === +val) {
+        if (item.id === +val) {
           state.CurrentProduct = item
         }
       })

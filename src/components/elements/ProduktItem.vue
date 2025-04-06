@@ -4,6 +4,7 @@
       'card': true,
       'card-basket': basket
     }"
+    @click="$router.push('/info/${id}')"
   >
     <img class="card__image" :src="urlImage" alt="">
     <h2 class="card__title">{{ title }}</h2>
@@ -50,6 +51,10 @@ export default {
     price: {
       type: Number,
       default: 0
+    },
+    id: {
+      type: Number,
+      default: 0
     }
   },
   setup () {
@@ -83,7 +88,6 @@ export default {
     text-align: left;
     font-family: Montserrat;
     line-height: 100%;
-    letter-spacing: 0%;
     color: #ffffff;
   }
 
@@ -105,7 +109,6 @@ export default {
     font-weight: 500;
     font-size: 17px;
     line-height: 100%;
-    letter-spacing: 0%;
     color: #ffffff;
 
     :deep(.button__icon-event) {
@@ -117,7 +120,6 @@ export default {
       font-weight: 500;
       font-size: 17px;
       line-height: 100%;
-      letter-spacing: 0%;
     }
   }
 }

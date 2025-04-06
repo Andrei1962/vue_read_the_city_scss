@@ -1,4 +1,4 @@
-d<template>
+<template>
   <div class="basket-list">
     <ProduktItem
       basket
@@ -8,6 +8,7 @@ d<template>
       :description="item.description"
       :urlImage="item.img"
       :price="item.price"
+      :id="item.id"
       @clickProductBtn="deleteProductsInBasket(item.idx)"
     />
   </div>

@@ -7,7 +7,7 @@
     }"
     >
     <BaseActionBtn
-      v-if="basketHeader"
+      v-if="basketHeader || cardHeader"
       @clickActionBtn="goBack"
       arrow
     />
@@ -23,21 +23,18 @@
         <BasketMcon/>
       </router-link>
       <div class="header__auth">
-        <router-link to="/auth">
-          <baseButton
-            class="header__auth"
-            name="Выйти"
-          />
-        </router-link>
+        <baseButton
+          class="header__auth"
+          name="Выйти"
+          @click="exit"
+        />
       </div>
     </div>
     <div class="header__authh" v-if="basketHeader">
-      <router-link to="/auth">
-        <baseButton
-          class="header__authh"
-          name="Выйти"
-        />
-      </router-link>
+      <baseButton
+        class="header__authh"
+        name="Выйти"
+      />
     </div>
   </header>
 </template>
@@ -81,10 +78,16 @@ export default {
       router.push('/')
     }
 
+    const exit = () => {
+      localStorage.isAuth = JSON.stringify(false)
+      router.push('/auth')
+    }
+
     return {
       countBasket,
       sumInBasket,
-      goBack
+      goBack,
+      exit
     }
   }
 }

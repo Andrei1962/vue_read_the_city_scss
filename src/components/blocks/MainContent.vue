@@ -1,13 +1,13 @@
 <template>
   <div class="main container">
     <ProduktItem
-      @click="$router.push('/info')"
       v-for="(item, i) in productslist"
       :key="i"
       :title="item.title"
       :description="item.description"
       :urlImage="item.img"
       :price="item.price"
+      :id="item.id"
       @clickProductBtn="addToBasket(item)"
     />
   </div>

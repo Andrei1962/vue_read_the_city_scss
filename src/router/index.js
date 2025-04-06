@@ -22,7 +22,7 @@ const routes = [
     component: AuthPage
   },
   {
-    path: '/info',
+    path: '/info/:id',
     name: 'ProductInfoPage',
     component: ProductInfoPage
   },

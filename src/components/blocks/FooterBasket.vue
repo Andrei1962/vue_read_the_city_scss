@@ -8,9 +8,7 @@
     </div>
     <div class="footer__order-btn">
       <router-link to="/order">
-        <baseButton name="Оформить заказ"
-          class="footer__order-btn"
-        />
+        <baseButton name="Оформить заказ" class="footer__order-btn"/>
       </router-link>
     </div>
     <!--/* <BaseButton
@@ -86,7 +84,6 @@ export default {
     font-weight: 400;
     font-size: 21px;
     line-height: 100%;
-    letter-spacing: 0%;
     text-transform: uppercase;
     margin-left: 100px;
     margin-top: 8px;
@@ -99,7 +96,6 @@ export default {
       font-weight: 400;
       font-size: 18px;
       line-height: 100%;
-      letter-spacing: 0%;
       margin-left: 10px;
     }
 
