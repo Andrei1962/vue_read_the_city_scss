@@ -1,13 +1,13 @@
 <template>
   <div class="card">
     <div class="basket__wrapper">
-      <HeaderMain cardHeader/>
-      <ProduktItem
+      <HeaderMain basketHeader/>
+      <!--<ProduktItem
         :title="currentProduct.title"
         :price="currentProduct.price"
         :image="currentProduct.img"
         :description="currentProduct.description"
-      />
+      />-->
     </div>
   </div>
 </template>
@@ -16,13 +16,13 @@
 // import { ref } from 'vue'
 
 import HeaderMain from '@/components/blocks/HeaderMain'
-import ProduktItem from '@/components/elements/ProduktItem'
+/* import ProduktItem from '@/components/elements/ProduktItem' */
 
 export default {
   name: 'ProductInfoPage',
   components: {
-    HeaderMain,
-    ProduktItem
+    HeaderMain
+    /* ProduktItem */
   },
   props: {
   },

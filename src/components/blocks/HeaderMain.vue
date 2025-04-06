@@ -7,7 +7,7 @@
     }"
     >
     <BaseActionBtn
-      v-if="basketHeader || cardHeader"
+      v-if="basketHeader"
       @clickActionBtn="goBack"
       arrow
     />
