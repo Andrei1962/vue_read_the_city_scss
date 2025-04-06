@@ -1,41 +1,17 @@
 <template>
-  <div class="card">
-    <div class="card__wrapper">
-      <div class="comp">
-        <HeaderCard/>
-      </div>
-      <div class="choice">
-        <div class="choice__image">
-          {{ urlImage }}
-        </div>
-        <div class="choice__specification">
-          <div class="choice__specification-title">
-            {{ currentProduct?.title }}
-          </div>
-          <div class="choice__specification-description">
-            {{ currentProduct?.description }}
-          </div>
-          <div class="choice__footer">
-            <div class="choice__footer-price">
-              {{ currentProduct?.price }}
-            </div>
-            <div class="button">
-              <router-link to="/basket">
-                <baseButton
-                class="choice__footer-btn"
-                name="В корзину"
-                />
-              </router-link>
-            </div>
-          </div>
+  <div class="info">
+    <HeaderCard/>
+    <div class="info-wrapper">
+      <img :src="currentProduct?.img" alt="" class="info-wrapper__img">
+      <div class="info-wrapper__description">
+        <h2 class="info-wrapper__description-title">{{ currentProduct?.title }}</h2>
+        <p class="info-wrapper__description-text">{{ currentProduct?.description }}</p>
+
+        <div class="info-wrapper__description-price">
+          <p>{{ currentProduct?.price }} p</p>
+          <baseButton name="В корзину" orange @clickbaseButton="add"/>
         </div>
       </div>
-      <ProduktItem
-        :title="currentProduct?.title"
-        :price="currentProduct?.price"
-        :urlImage="currentProduct?.img"
-        :description="currentProduct?.description"
-      />
     </div>
   </div>
 </template>
@@ -48,13 +24,13 @@ import { useRoute } from 'vue-router'
 import { uuid } from 'vue-uuid'
 
 import HeaderCard from '@/components/blocks/HeaderCard'
-import ProduktItem from '@/components/elements/ProduktItem'
+import baseButton from '@/components/ui/baseButton'
 
 export default {
   name: 'ProductInfoPage',
   components: {
     HeaderCard,
-    ProduktItem
+    baseButton
   },
   props: {
   },
@@ -91,31 +67,37 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card {
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 1440px;
-  max-height: 734px;
+.info {
   background-color: #161516;
-  background-size: cover;
-  overflow: auto;
-  color: #ffffff;
-  padding: 48px 70px 108px 70px;
+  color: #ffffff;  
 
   &__wrapper {
-    max-width: 1440px;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    gap: 199px;
+    padding-left: 140px;
 
-    .comp {
-      width: 1440px;
+    &__img {
+      width: 501px;
+      height: 503px;
     }
 
-    .choice {
+    &__description {
+      &-title {
+        font-family: Montserrat;
+        font-weight: 500;
+        font-size: 30px;
+        line-height: 100%;
+        color: #D58C51;
+      }
+
+      &text {
+        margin-botton: 34px;
+        font-weight: 400;
+        font-size: 14px;
+      }
+
+      &-price
       position: relative;
       display: flex;
       flex-direction: row;
