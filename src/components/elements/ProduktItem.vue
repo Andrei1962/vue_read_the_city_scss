@@ -4,7 +4,7 @@
       'card': true,
       'card-basket': basket
     }"
-    @click="$router.push('/info/${id}')"
+    @click="$router.push(`/info/${id}`)"
   >
     <img class="card__image" :src="urlImage" alt="">
     <h2 class="card__title">{{ title }}</h2>
