@@ -8,7 +8,7 @@
     </div>
     <div class="footer__order-btn">
       <router-link to="/order">
-        <baseButton name="Оформить заказ" class="footer__order-btn"/>
+        <baseButton @clickBaseButton="arrangeBasket" name="Оформить заказ" class="footer__order-btn"/>
       </router-link>
     </div>
     <!--/* <BaseButton

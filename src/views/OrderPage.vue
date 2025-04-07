@@ -5,7 +5,7 @@
         Вы оформили заказ!
       </h2>
       <div class="button">
-        <router-link to="/auth">
+        <router-link to="/">
           <baseButton
             name="На главную"
           />
@@ -41,8 +41,9 @@ export default {
 
 <style lang="scss" scoped>
 .main {
-  background: url('../assets/images/authBackground.png') no-repeat;
+  background: linear-gradient(to right, rgba(0,0,0,0.4) 600px, rgba(0,0,0,0)),  url('../assets/images/authBackground.png') no-repeat;
   background-size: cover;
+  max-width: 1540px;
   height: 100vh;
   display: flex;
   justify-content: center;

@@ -215,7 +215,7 @@ export default {
 
 <style lang="scss" scoped>
 .main {
-  background: url('../assets/images/authBackground.png') no-repeat;
+  background: linear-gradient(to right, rgba(0,0,0,0.4) 600px, rgba(0,0,0,0)), url('../assets/images/authBackground.png') no-repeat;
   background-size: cover;
   display: flex;
   justify-content: center;

@@ -29,7 +29,7 @@ export default {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  width: 100%;
+  max-width: 1540px;
   height: 100%;
   background-color: #161516;
   overflow: auto;

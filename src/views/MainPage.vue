@@ -32,6 +32,7 @@ export default {
   background-color: #161516;
   overflow: auto;
   height: 100%;
+  max-width: 1540px;
   padding-bottom: 67px;
 }
 
