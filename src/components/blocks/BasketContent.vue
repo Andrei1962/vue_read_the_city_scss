@@ -51,6 +51,8 @@ export default {
   margin-bottom: 40px;
   height: calc(100vh - 300px);
   overflow: auto;
+
+  &::-webkit-scrollbar { display: none; }
 }
 
 .basket__arrange {

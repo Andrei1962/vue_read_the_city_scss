@@ -23,17 +23,14 @@
       >
       <p class="input__passwordError">{{ errorPassword }}</p>
 
-      <label class="form__label">
-        <input type="checkbox" class="form__label_checkbox">
-      </label>
+      <div id="inputPreview">
+    <input name="cssCheckbox" id="demo_opt_1" type="checkbox" class="css-checkbox">
+    <label for="demo_opt_1">
+      Я согласен получать обновления на почту
+    </label>
+  </div>
 
-      <label class="form__customCheckbox">
-        <input type="checkbox" class="form__customCheckbox_input">
-        <span class="form__customCheckbox_checkmark" ></span>
-        <span class="form__customCheckbox_label" >Я согласен получать обновления на почту</span>
-      </label>
-
-      <p class="form__customCheckbox_errorValidAuthReg">{{ errorValidAuthReg }}</p>
+      <p class="input__errorValidAuthReg">{{ errorValidAuthReg }}</p>
 
       <div class="form__button">
         <baseButton
@@ -318,66 +315,8 @@ export default {
         margin-top: 208px;
         margin-left: 38px;
       }
-    }
 
-    &__label {
-      position: absolute;
-      align-self: flex-start;
-      font-family: Montserrat;
-      font-weight: 300;
-      font-size: 11px;
-      line-height: 100%;
-      letter-spacing: 0%;
-      color: #161516;
-      top: 221px;
-      margin-left: 20px;
-      z-index: 1;
-
-      &_checkbox {
-        border-color: #D58C51;
-      }
-    }
-
-    &__customCheckbox {
-      position: absolute;
-      display: flex;
-      align-self: flex-start;
-      cursor: pointer;
-      color: #787878;      /* цвет звездочки черный */
-      margin-left: 20px;
-      top: 220px;
-
-      &_input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-        color: #000000;
-        top: 246px;
-      }
-
-      &_checkmark {
-        display: block;
-        width: 18px;
-        height: 18px;
-        border-radius: 50%;
-        left: 6px;
-        border: 1px solid #D58C51;/* цвет рамки чекбокса */
-        margin-right: 10px;
-      }
-
-      &_label {
-        color: #301411; /* цвет текста */
-        margin-left: 9px;
-        font-family: Montserrat;
-        font-weight: 300;
-        font-size: 11px;
-        line-height: 100%;
-        margin-top: 5px;
-      }
-
-      &_errorValidAuthReg {
+      &__errorValidAuthReg {
         position: absolute;
         color: #FF0B0B;
         font-family: Montserrat;
@@ -393,6 +332,56 @@ export default {
       top: 264px;
       background-color: #D58C51;
     }
+  }
+
+  .css-checkbox {
+    position: absolute;
+    overflow: hidden;
+    top: 218px;
+    left: +22px;
+  }
+
+  #inputPreview {
+    display: flex;
+    justify-content: left;
+    margin-bottom: 30px;
+  }
+
+  .css-checkbox + label {
+    position: relative;
+    font-family: "Montserrat", serif;
+    font-size: 11px;
+    font-weight: 300;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    height: 20px;
+    color: #301411;
+    top: 218px;
+    left: -93px;
+  }
+
+  .css-checkbox + label::before {
+    content: " ";
+    display: inline-block;
+    margin-right: 9px;
+    width: 18px;
+    height: 18px;
+    background-color: white;
+    border: 1px solid #D58C51;
+    border-radius: 50%;
+  }
+
+  .css-checkbox:checked + label::after {
+    content: " ";
+    background-color: #D58C51;
+    border: 1px solid #D58C51;
+    border-radius: 50%;
+    position: absolute;
+    left: 4px;
+    top: 4px;
+    height: 10px;
+    width: 10px;
   }
 }
 

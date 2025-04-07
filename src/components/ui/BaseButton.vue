@@ -4,6 +4,7 @@
       'button': true,
       'button_orange': orange
     }"
+    @click="$emit('clickBaseButton')"
   >
     {{ name }}
   </button>

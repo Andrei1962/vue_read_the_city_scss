@@ -114,7 +114,7 @@ export default {
     }
   }
 
-  &__button {
+  &__button { /* кнопка под svg */
     width: 50px;
     height: 50px;
     border-radius: 50%;
@@ -128,21 +128,21 @@ export default {
   }
 
   &__auth {
-    height: 42px;
     width: 200px;
+    height: 42px;
     color: #D58C51;
-    background-color: #151615;
+    background-color: transparent;
     border: 1px solid #D58C51;
     font-family: Montserrat;
     font-weight: 400;
     font-size: 14px;
     line-height: 100%;
-
+    cursor: pointer;
   }
 
   &__authh {
-    height: 42px;
     width: 200px;
+    height: 42px;
     color: #D58C51;
     background-color: #151615;
     border: 1px solid #D58C51;

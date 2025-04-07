@@ -3,11 +3,10 @@
     :class="{
       'header container': true,
       'header_basket': basketHeader,
-      'header_card' : cardHeader
     }"
     >
     <BaseActionBtn
-      v-if="basketHeader || cardHeader"
+      v-if="basketHeader"
       @clickActionBtn="goBack"
       arrow
     />
@@ -34,6 +33,7 @@
       <baseButton
         class="header__authh"
         name="Выйти"
+        @click="exit"
       />
     </div>
   </header>
@@ -99,7 +99,7 @@ export default {
   margin: 0 auto;
 }
 
-.header, .header__basket, .header_card {
+.header, .header_basket {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -120,16 +120,10 @@ export default {
     gap: 90px;
   }
 
-  &_card {
-    width: 1440px;
+  &__basket {
     display: flex;
     align-items: center;
     justify-content: start;
-    margin-bottom: 38px;
-    gap: 90px;
-  }
-
-  &__basket {
     gap: 20px;
 
     &-count {
@@ -174,7 +168,6 @@ export default {
   }
 
   &__auth {
-    height: 42px;
     width: 200px;
     color: #D58C51;
     background-color: #151615;
@@ -183,11 +176,9 @@ export default {
     font-weight: 400;
     font-size: 14px;
     line-height: 100%;
-
   }
 
   &__authh {
-    height: 42px;
     width: 200px;
     color: #D58C51;
     background-color: #151615;

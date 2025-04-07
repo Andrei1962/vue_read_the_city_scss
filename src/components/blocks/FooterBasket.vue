@@ -85,7 +85,7 @@ export default {
     font-size: 21px;
     line-height: 100%;
     text-transform: uppercase;
-    margin-left: 100px;
+    margin-left: 50px;
     margin-top: 8px;
 
     &-sum {
