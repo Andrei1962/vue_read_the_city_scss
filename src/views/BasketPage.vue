@@ -30,7 +30,6 @@ export default {
   flex-direction: column;
   justify-content: space-between;
   max-width: 1540px;
-  height: 100%;
   background-color: #161516;
   overflow: auto;
 

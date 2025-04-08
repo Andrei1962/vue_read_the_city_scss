@@ -48,6 +48,7 @@ export default {
   display: flex;
   justify-content: center;
   align-items: center;
+  overflow: auto;
 
   &__form {
     background:rgb(99, 237, 221);

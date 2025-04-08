@@ -1,5 +1,5 @@
 
-export default {
+export default ({
   state: {
     Products: [
       {
@@ -97,8 +97,8 @@ export default {
     },
     setClearBasket (state) {
       state.BasketProducts = []
-      state.CountProductsInBasket = 0
-      state.AllPriceProductsInBasket = 0
+      this.commit('setUpdateCounts')
+      this.commit('setUpdateInfoUserBasket')
     },
     setDataDistribution (state) {
       state.BasketProducts = JSON.parse(localStorage.currentUser).basket
@@ -120,4 +120,4 @@ export default {
       localStorage.currentUser = JSON.stringify(infoUser)
     }
   }
-}
+})

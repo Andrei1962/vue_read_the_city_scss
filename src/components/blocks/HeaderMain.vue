@@ -97,6 +97,7 @@ export default {
 .container {
   max-width: 1710px;
   margin: 0 auto;
+  overflow: auto;
 }
 
 .header, .header_basket {
